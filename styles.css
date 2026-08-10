@@ -1092,3 +1092,117 @@ body {
     padding: 20px;
   }
 }
+
+/* =========================================
+   PÁGINA ESTÁTICA: PREGUNTAS FRECUENTES
+========================================= */
+.faq-page {
+  max-width: 840px; 
+  margin: 0 auto;
+  padding: 64px 21px;
+  width: 100%;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-title {
+  font-family: Lora, Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #184175;
+  margin: 0 0 16px 0;
+}
+
+.faq-subtitle {
+  font-size: 16px;
+  color: #34495e;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* El contenedor del acordeón */
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e2e5e7;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: #4a90e2;
+}
+
+/* La cabecera clicable */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f1c2d;
+  cursor: pointer;
+  list-style: none; /* Elimina la flecha fea por defecto en Firefox */
+}
+
+/* Elimina la flecha fea por defecto en Chrome/Safari */
+.faq-question::-webkit-details-marker {
+  display: none; 
+}
+
+/* Animación del ícono SVG */
+.faq-icon {
+  color: #184175;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex-shrink: 0;
+}
+
+/* Cuando el detalles está abierto, rotamos la flecha 180 grados */
+details[open] .faq-icon {
+  transform: rotate(180deg);
+  color: #4a90e2;
+}
+
+/* El texto de la respuesta */
+.faq-answer {
+  padding: 0 24px 24px 24px;
+  color: #34495e;
+  font-size: 15px;
+  line-height: 1.6;
+  border-top: 1px solid transparent;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 599px) {
+  .faq-page {
+    padding: 48px 21px;
+  }
+
+  .faq-title {
+    font-size: 28px;
+  }
+
+  .faq-question {
+    padding: 20px;
+    font-size: 15px;
+    gap: 16px; /* Asegura espacio entre el texto largo y el ícono */
+  }
+
+  .faq-answer {
+    padding: 0 20px 20px 20px;
+  }
+}

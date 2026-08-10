@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barra de navegación UMA Hospital</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Barra de navegación">
+      <div class="navbar__content">
+        <button class="navbar__menu" type="button" aria-label="Abrir menú">
+          <svg viewBox="0 0 35 35" width="35" height="35" aria-hidden="true">
+            <rect x="6" y="10" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="17" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="24" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+          </svg>
+        </button>
+
+        <a href="index.html" aria-label="Volver a la página de inicio" class="nav-logo-link">
+          <img src="assets/logo.jpeg" alt="Logo UMA Hospital" class="nav-logo" />
+        </a>
+
+        <ul class="nav-links">
+          <!-- DROPDOWN: MIS CITAS -->
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Mis Citas
+              <!-- Ícono de flecha vectorizado -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            
+            <!-- Contenedor del Mega Menú -->
+            <div class="dropdown-menu mega-menu">
+              <!-- Columna 1: Gestión -->
+              <div class="dropdown-group">
+                <span class="dropdown-header">Gestión de Citas</span>
+                <a href="#">Panel de control</a>
+                <a href="#">Documentación</a>
+                <a href="#">Configuración</a>
+              </div>
+              
+              <!-- Divisor visual vertical -->
+              <div class="dropdown-divider"></div>
+
+              <!-- Columna 2: Agendamiento y Búsqueda -->
+              <div class="dropdown-group">
+                <span class="dropdown-header">Agendamiento y Búsqueda</span>
+                <a href="#">Selección de turnos</a>
+                <a href="#">Costos</a>
+                <a href="#">Especialidades</a>
+                <a href="#">Directorio médico</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- DROPDOWN: SOPORTE -->
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Soporte
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            
+            <div class="dropdown-menu">
+              <div class="dropdown-group">
+                <span class="dropdown-header">Ayuda al Paciente</span>
+                <a href="#">Centro de ayuda</a>
+                <a href="#">Contacto</a>
+                <a href="#">Preguntas frecuentes</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <a href="#" class="nav-button">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+<!-- INICIO DEL CONTENIDO CENTRAL: PREGUNTAS FRECUENTES -->
+    <main class="main-content faq-page">
+      <section class="faq-section" aria-labelledby="faq-title">
+        
+        <header class="faq-header">
+          <h1 class="faq-title" id="faq-title">Preguntas Frecuentes</h1>
+          <p class="faq-subtitle">Encuentra respuestas rápidas a las dudas más comunes sobre nuestro sistema de agendamiento y servicios médicos.</p>
+        </header>
+
+        <div class="faq-list">
+          
+          <!-- Pregunta 1 -->
+          <!-- El atributo name="faq" agrupa las tarjetas para que solo una se abra a la vez -->
+          <details class="faq-item" name="faq" open>
+            <summary class="faq-question">
+              ¿Cómo agendo una cita médica por primera vez?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Es muy sencillo. Utiliza la barra de búsqueda en nuestra página de inicio ingresando tu síntoma, la especialidad que buscas o el nombre del doctor. En los resultados, podrás ver la disponibilidad y seleccionar el horario que mejor se adapte a ti.</p>
+            </div>
+          </details>
+
+          <!-- Pregunta 2 -->
+          <details class="faq-item" name="faq">
+            <summary class="faq-question">
+              ¿Dónde puedo ver, reprogramar o cancelar mis citas?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Puedes gestionar todas tus citas dirigiéndote al menú superior <strong>Mis Citas</strong> y seleccionando la opción <strong>Panel de control</strong>. Desde allí podrás ver tus próximos turnos, modificar la fecha o cancelar la cita en caso de algún imprevisto.</p>
+            </div>
+          </details>
+
+          <!-- Pregunta 3 -->
+          <details class="faq-item" name="faq">
+            <summary class="faq-question">
+              ¿Dónde consulto mis resultados médicos y recetas?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Toda tu historia clínica está respaldada. Ve al menú <strong>Mis Citas</strong> y selecciona <strong>Documentación</strong>. Allí encontrarás los resultados de tus exámenes de laboratorio, imágenes y recetas médicas emitidas en tus consultas anteriores.</p>
+            </div>
+          </details>
+
+          <!-- Pregunta 4 -->
+          <details class="faq-item" name="faq">
+            <summary class="faq-question">
+              ¿Atienden con seguros médicos privados?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Sí, trabajamos en conjunto con nuestra red de Clínicas Afiliadas (como Hospital Metropolitano, Axxis, etc.). Al momento de agendar tu turno, podrás ingresar los datos de tu aseguradora para validar la cobertura directamente en el sistema.</p>
+            </div>
+          </details>
+
+          <!-- Pregunta 5 -->
+          <details class="faq-item" name="faq">
+            <summary class="faq-question">
+              ¿Qué ocurre si llego tarde a mi turno programado?
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Recomendamos llegar con 15 minutos de anticipación. Si te retrasas más de 10 minutos desde la hora programada de tu cita, el sistema podría ceder el turno al siguiente paciente en lista de espera y deberás reprogramar tu visita.</p>
+            </div>
+          </details>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="footer-links">
+          <div class="footer-group">
+            <h3>Nosotros</h3>
+            <ul>
+              <li><a href="#">Historia</a></li>
+              <li><a href="#">Nuestros médicos</a></li>
+              <li><a href="#">Trabaja con nosotros</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Políticas</h3>
+            <ul>
+              <li><a href="#">Términos de servicio</a></li>
+              <li><a href="#">Privacidad de datos</a></li>
+              <li><a href="#">Uso de cookies</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Preguntas frecuentes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <img src="assets/logo-footer.jpg" alt="Logo UMA Hospital" class="footer-logo" />
+          <div class="footer-socials" aria-label="Redes sociales">
+            <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
