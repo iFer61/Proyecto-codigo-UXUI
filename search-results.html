@@ -20,8 +20,54 @@
         <img src="assets/logo.jpeg" alt="Logo UMA Hospital" class="nav-logo" />
 
         <ul class="nav-links">
-          <li><a href="#">Mis Citas</a></li>
-          <li><a href="#">Soporte</a></li>
+          <!-- DROPDOWN: MIS CITAS -->
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Mis Citas
+              <!-- Ícono de flecha vectorizado -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            
+            <!-- Contenedor del Mega Menú -->
+            <div class="dropdown-menu mega-menu">
+              <!-- Columna 1: Gestión -->
+              <div class="dropdown-group">
+                <span class="dropdown-header">Gestión de Citas</span>
+                <a href="#">Panel de control</a>
+                <a href="#">Documentación</a>
+                <a href="#">Configuración</a>
+              </div>
+              
+              <!-- Divisor visual vertical -->
+              <div class="dropdown-divider"></div>
+
+              <!-- Columna 2: Agendamiento y Búsqueda -->
+              <div class="dropdown-group">
+                <span class="dropdown-header">Agendamiento y Búsqueda</span>
+                <a href="#">Selección de turnos</a>
+                <a href="#">Costos</a>
+                <a href="#">Especialidades</a>
+                <a href="#">Directorio médico</a>
+              </div>
+            </div>
+          </li>
+
+          <!-- DROPDOWN: SOPORTE -->
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Soporte
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            
+            <div class="dropdown-menu">
+              <div class="dropdown-group">
+                <span class="dropdown-header">Ayuda al Paciente</span>
+                <a href="#">Centro de ayuda</a>
+                <a href="#">Contacto</a>
+                <a href="#">Preguntas frecuentes</a>
+              </div>
+            </div>
+          </li>
         </ul>
 
         <a href="#" class="nav-button">Iniciar Sesión</a>
