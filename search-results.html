@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultados de búsqueda UMA Hospital</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Barra de navegación">
+      <div class="navbar__content">
+        <button class="navbar__menu" type="button" aria-label="Abrir menú">
+          <svg viewBox="0 0 35 35" width="35" height="35" aria-hidden="true">
+            <rect x="6" y="10" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="17" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="24" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+          </svg>
+        </button>
+
+        <img src="assets/logo.png" alt="Logo UMA Hospital" class="nav-logo" />
+
+        <ul class="nav-links">
+          <li><a href="#">Mis Citas</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+
+        <a href="#" class="nav-button">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+    <!-- Le devolvemos la clase 'main-content' para que empuje el footer -->
+    <main class="search-page-content main-content">
+      <header class="filters-bar">
+        <h1 class="filters-title">Resultados para: 'Dolor de Cabeza'</h1>
+        <div class="filters-actions">
+          <button class="filter-chip" type="button">Filtros</button>
+          <button class="filter-chip filter-chip--accent" type="button">Fecha: Cualquiera</button>
+        </div>
+      </header>
+
+      <div class="doctors-list">
+        <!-- PLANITLLA DOCTOR 1 -->
+        <article class="doctor-card">
+          <div class="doctor-info">
+            <div class="doctor-avatar" aria-hidden="true"></div>
+            <div class="doctor-meta">
+              <h3>Dr. Emilio Córdova</h3>
+              <p>Medicina General</p>
+            </div>
+          </div>
+
+          <div class="doctor-schedule">
+            <h4>Próximos Turnos Disponibles</h4>
+            <div class="time-slots-grid">
+              <button class="time-btn" type="button">09:00</button>
+              <button class="time-btn" type="button">09:30</button>
+              <button class="time-btn" type="button">10:00</button>
+              <button class="time-btn" type="button">10:30</button>
+              <button class="time-btn" type="button">15:00</button>
+              <button class="time-btn" type="button">15:30</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PLANTILLA DOCTOR 2 (ESTADO VACÍO) -->
+        <article class="doctor-card doctor-card--empty">
+          <div class="doctor-info">
+            <div class="doctor-avatar" aria-hidden="true"></div>
+            <div class="doctor-meta">
+              <h3>Dr. Fernando Lema</h3>
+              <p>Medicina General</p>
+            </div>
+          </div>
+
+          <!-- Limpiamos el texto duplicado para igualar el diseño -->
+          <div class="doctor-schedule doctor-schedule--empty">
+            <h4 class="empty-text">Sin Turnos Disponibles</h4>
+            <button class="btn-calendar" type="button">Ver Calendario Completo</button>
+          </div>
+        </article>
+
+        <!-- PLANTILLA DOCTOR 3 -->
+        <article class="doctor-card">
+          <div class="doctor-info">
+            <div class="doctor-avatar" aria-hidden="true"></div>
+            <div class="doctor-meta">
+              <h3>Dr. Carlos Ruíz Luna</h3>
+              <p>Neumología</p>
+            </div>
+          </div>
+
+          <div class="doctor-schedule">
+            <h4>Próximos Turnos Disponibles</h4>
+            <div class="time-slots-grid">
+              <button class="time-btn" type="button">09:00</button>
+              <button class="time-btn" type="button">10:00</button>
+              <button class="time-btn" type="button">14:00</button>
+              <button class="time-btn" type="button">14:30</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="footer-links">
+          <div class="footer-group">
+            <h3>Nosotros</h3>
+            <ul>
+              <li><a href="#">Historia</a></li>
+              <li><a href="#">Nuestros médicos</a></li>
+              <li><a href="#">Trabaja con nosotros</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Políticas</h3>
+            <ul>
+              <li><a href="#">Términos de servicio</a></li>
+              <li><a href="#">Privacidad de datos</a></li>
+              <li><a href="#">Uso de cookies</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Preguntas frecuentes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <img src="assets/logo-footer.jpg" alt="Logo UMA Hospital" class="footer-logo" />
+          <div class="footer-socials" aria-label="Redes sociales">
+            <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

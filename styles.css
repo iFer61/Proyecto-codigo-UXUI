@@ -1,0 +1,881 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, sans-serif;
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  width: 100%;
+  background: #184175;
+}
+
+.main-content {
+  /* NUEVO: Esto obliga al contenido principal a expandirse como un resorte,
+     empujando el footer hacia el final de la pantalla */
+  flex: 1; 
+}
+
+.navbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 21px;
+  gap: 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.navbar__menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-logo {
+  width: 126px;
+  height: 51px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  min-width: 140px;
+  background: #ffffff;
+  color: #184175;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .navbar__content {
+    max-width: 1025px;
+    gap: 16px;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 599px) {
+  .navbar__content {
+    max-width: 599px;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .navbar__menu {
+    display: flex;
+  }
+
+  .nav-links,
+  .nav-button {
+    display: none;
+  }
+}
+
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 200px;
+  margin: 32px auto;
+  background: #184175 url("assets/hero-bg-1.jpg") center/cover no-repeat;
+  border-radius: 20px;
+  max-width: 1440px;
+  width: calc(100% - 42px);
+}
+
+.hero-carousel::before,
+.hero-carousel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-carousel::before {
+  background-image: url("assets/hero-bg-2.jpg");
+  animation: hero-fade-2 15s infinite ease-in-out;
+  z-index: 0
+}
+
+.hero-carousel::after {
+  background-image: url("assets/hero-bg-3.png");
+  animation: hero-fade-3 15s infinite ease-in-out;
+  z-index: 0
+}
+
+.hero-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: min(980px, 100%);
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: Lora, Georgia, serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.hero-search {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: min(775px, 100%);
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.hero-search__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #184175;
+  flex-shrink: 0;
+}
+
+.hero-search__input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #0f1c2d;
+  background: transparent;
+}
+
+.hero-search__input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+} /* <- ¡AQUÍ CERRAMOS EL PLACEHOLDER PRIMERO! */
+
+/* AHORA SÍ: Ocultamos las versiones cortas por defecto (Vista de PC) */
+.title-tablet {
+  display: none;
+}
+.input-mobile {
+  display: none;
+}
+
+@keyframes hero-fade-2 {
+  0%, 23% { opacity: 0; }    /* Espera oculta mientras se ve la imagen 1 */
+  33%, 56% { opacity: 1; }   /* Se muestra totalmente en su turno */
+  66%, 100% { opacity: 0; }  /* Se oculta para dar paso a la imagen 3 */
+}
+
+@keyframes hero-fade-3 {
+  0%, 56% { opacity: 0; }    /* Espera oculta mientras pasan la 1 y la 2 */
+  66%, 90% { opacity: 1; }   /* Se muestra totalmente en su turno */
+  100% { opacity: 0; }       /* Se desvanece suavemente volviendo a la imagen 1 */
+}
+
+@media (max-width: 1024px) {
+  .hero-carousel {
+    padding: 100px 120px;
+    min-height: 480px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-search {
+    width: min(680px, 100%);
+  }
+
+  .title-desktop {
+    display: none;
+  }
+
+  .title-tablet {
+    display: block; 
+  }
+}
+
+@media (max-width: 599px) {
+  .hero-carousel {
+    padding: 64px 20px;
+    min-height: 420px;
+  }
+
+  .hero-panel {
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-search {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .input-desktop {
+    display: none;
+  }
+  .input-mobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+.specialties-section {
+  max-width: 1440px;
+  margin: 48px auto; /* Centra toda la sección en la pantalla */
+  padding: 0 21px; /* Alinea con el margen del menú y el hero */
+  width: 100%;
+}
+
+.specialties-title {
+  font-family: Lora, Georgia, serif; /* Tipografía Serif del diseño original */
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f1c2d;
+  margin-bottom: 24px;
+}
+
+.specialties-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto; /* Habilita el deslizamiento horizontal */
+  padding-bottom: 16px; /* Da espacio para que no se corte la sombra de las tarjetas */
+  
+  /* Truco para ocultar la barra de scroll visualmente pero mantener la función */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+}
+
+.specialties-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}
+
+.specialty-card {
+  flex: 0 0 auto; /* ¡CRUCIAL! flex-shrink: 0 evita que las tarjetas se aplasten */
+  width: 220px; /* Ancho fijo para mantener la uniformidad */
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 1px solid #E2E5E7; /* El borde gris sutil */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03); /* Sombra suave */
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.specialty-card:hover {
+  transform: translateY(-5px); /* Pequeña animación al pasar el ratón */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.specialty-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.specialty-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #184175;
+  text-align: center;
+}
+
+/* Centra las tarjetas de especialidades solo en pantallas grandes */
+@media (min-width: 1025px) {
+  .specialties-track {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .specialties-section {
+    margin-top: 40px;
+  }
+
+  .specialties-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 599px) {
+  .specialties-section {
+    margin-top: 32px;
+    width: calc(100% - 24px);
+  }
+
+  .specialties-section {
+    margin: 32px auto;
+  }
+
+  .specialties-title {
+    font-size: 24px;
+  }
+
+  .specialty-card {
+    width: 180px;
+    padding: 24px 16px;
+  }
+}
+
+/* =========================================
+   SECCIÓN CLÍNICAS AFILIADAS
+========================================= */
+.affiliates-section {
+  max-width: 1440px;
+  margin: 64px auto;
+  padding: 0 21px; /* Restauramos la alineación exacta del menú y especialidades */
+  width: 100%;
+}
+
+.affiliates-title {
+  margin: 0 0 24px 0; /* Separación idéntica a la sección anterior */
+  font-family: Lora, Georgia, serif;
+  font-size: 28px; /* Igualamos el tamaño al título de Especialidades */
+  font-weight: 700;
+  color: #0f1c2d;
+}
+
+.affiliates-slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.affiliates-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: affiliates-marquee 20s linear infinite;
+  will-change: transform; /* Optimiza la animación en el navegador */
+}
+
+.affiliate-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.affiliate-item img {
+  height: 64px; /* Les devolvemos su tamaño y presencia original */
+  max-width: 200px;
+  width: auto;
+  object-fit: contain;
+  /* Eliminamos el filtro gris y la opacidad para que brillen a todo color */
+}
+
+/* Animación del Carrusel */
+@keyframes affiliates-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Desplaza exactamente 1 grupo de 5 logos hacia la izquierda */
+    transform: translateX(calc(-25% - 16px));
+  }
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .affiliates-section {
+    margin: 48px auto;
+  }
+  .affiliates-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 599px) {
+  .affiliates-section {
+    margin: 32px auto;
+  }
+  .affiliates-title {
+    font-size: 24px;
+  }
+  .affiliate-item img {
+    height: 48px; /* Tamaño adaptado para móviles */
+    max-width: 140px;
+  }
+}
+
+
+/* =========================================
+   SECCIÓN PROMOCIONES DEL MES
+========================================= */
+.promos-section {
+  max-width: 1440px;
+  margin: 64px auto;
+  padding: 0 21px;
+  width: 100%;
+}
+
+.promos-title {
+  font-family: Lora, Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f1c2d;
+  margin-bottom: 24px;
+}
+
+/* VISTA DE PC: Dos recuadros estáticos lado a lado */
+.promos-container {
+  display: flex;
+  gap: 32px; /* Tu espacio de 32px */
+  justify-content: center;
+  width: 100%;
+}
+
+.promo-banner {
+  width: calc(50% - 16px); /* Mitad de pantalla menos la mitad del gap */
+  height: 240px; /* Tu altura fija */
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* =========================================
+   VISTA TABLET Y MÓVIL (Desvanecimiento)
+========================================= */
+@media (max-width: 1024px) {
+  .promos-title {
+    font-size: 24px;
+  }
+  
+  .promos-container {
+    display: block; /* Rompemos el Flexbox */
+    position: relative; /* Convertimos el contenedor en un marco */
+    height: 240px; 
+  }
+  
+  .promo-banner {
+    position: absolute; /* Apilamos una imagen sobre la otra */
+    top: 0;
+    left: 0;
+    width: 100%; /* Un único recuadro centrado */
+    height: 100%;
+    opacity: 0; /* Las ocultamos por defecto */
+  }
+
+  /* Asignamos la animación infinita de 10 segundos (5s por imagen) */
+  .banner-1 {
+    animation: crossfade-1 10s infinite;
+  }
+  .banner-2 {
+    animation: crossfade-2 10s infinite;
+  }
+}
+
+@media (max-width: 599px) {
+  .promos-section {
+    margin: 32px auto;
+  }
+}
+
+/* =========================================
+   PÁGINA DE RESULTADOS DE BÚSQUEDA
+========================================= */
+.search-page-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 21px;
+  width: 100%;
+}
+
+.filters-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #e2e5e7;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin: 0 auto 24px;
+  max-width: 1000px;
+}
+
+.filters-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #184175;
+}
+
+.filters-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  border: 1px solid #e2e5e7;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #184175;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-chip--accent {
+  color: #175c4f;
+}
+
+.doctors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid #e2e5e7;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.doctor-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #E5F0FA; /* El azul claro de tu diseño en lugar del gris genérico */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.doctor-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doctor-meta h3 {
+  margin: 0;
+  font-family: Lora, Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #4a90e2; /* Azul vibrante para los nombres */
+}
+
+.doctor-meta p {
+  margin: 0;
+  font-size: 14px;
+  color: #34495e;
+}
+
+.doctor-schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 340px; /* Le damos un poco más de aire a la grilla */
+}
+
+.doctor-schedule h4, .empty-text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111111;
+  text-align: center;
+}
+
+.time-slots-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 320px; /* Evita que los botones se estiren demasiado */
+}
+
+.time-btn {
+  border: 1px solid #bdc3c7;
+  border-radius: 20px; /* Bordes más redondeados tipo "píldora" */
+  padding: 8px 16px;
+  min-width: 80px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-btn:hover {
+  border-color: #184175;
+  color: #184175;
+  background: #f8f9fa;
+}
+
+.doctor-schedule--empty {
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-calendar {
+  border: 1px solid #bdc3c7;
+  border-radius: 20px;
+  padding: 10px 24px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-calendar:hover {
+  background: #f8f9fa;
+  border-color: #184175;
+}
+
+@media (max-width: 599px) {
+  .search-page-content {
+    padding: 24px 12px 48px;
+  }
+
+  .filters-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .filters-title {
+    font-size: 15px;
+  }
+
+  .doctor-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .doctor-info {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .doctor-schedule {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .time-slots-grid {
+    justify-content: center;
+  }
+}
+
+/* =========================================
+   SECCIÓN FOOTER
+========================================= */
+.site-footer {
+  background: #184175;
+  color: #ffffff;
+  margin-top: 0; /* Eliminamos el exceso de espacio en PC */
+}
+
+.site-footer__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 21px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 24px;
+}
+
+.footer-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ALINEACIÓN EXACTA PARA PC */
+/* 1. Nosotros (Izquierda) */
+.footer-group:nth-child(1) {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* 2. Políticas (Centro) */
+.footer-group:nth-child(2) {
+  align-items: center;
+  text-align: center;
+}
+
+/* 3. Soporte (Derecha) */
+.footer-group:nth-child(3) {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-group h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footer-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-group a {
+  color: #e2e5e7;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-group a:hover {
+  color: #ffffff;
+}
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin: 32px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-logo {
+  height: 44px;
+  width: auto;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* =========================================
+   RESPONSIVIDAD (TABLET Y MÓVIL)
+========================================= */
+@media (max-width: 599px) {
+  .footer-links {
+    grid-template-columns: 1fr; /* Mantiene 1 sola columna para los textos */
+    gap: 32px;
+  }
+
+  /* Textos centrados en móvil */
+  .footer-group:nth-child(1),
+  .footer-group:nth-child(2),
+  .footer-group:nth-child(3) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   MATEMÁTICA DEL CROSSFADE (PROMOCIONES MÓVIL)
+   (Restaurado en su lugar correcto)
+========================================= */
+@keyframes crossfade-1 {
+  0%, 45% { opacity: 1; }     
+  50%, 95% { opacity: 0; }    
+  100% { opacity: 1; }        
+}
+
+@keyframes crossfade-2 {
+  0%, 45% { opacity: 0; }     
+  50%, 95% { opacity: 1; }    
+  100% { opacity: 0; }        
+}

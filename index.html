@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barra de navegación UMA Hospital</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Barra de navegación">
+      <div class="navbar__content">
+        <button class="navbar__menu" type="button" aria-label="Abrir menú">
+          <svg viewBox="0 0 35 35" width="35" height="35" aria-hidden="true">
+            <rect x="6" y="10" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="17" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="24" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+          </svg>
+        </button>
+
+        <img src="assets/logo.png" alt="Logo UMA Hospital" class="nav-logo" />
+
+        <ul class="nav-links">
+          <li><a href="#">Mis Citas</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+
+        <a href="#" class="nav-button">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+    <!-- INICIO DEL CONTENIDO CENTRAL -->
+    <main class="main-content">
+      <section class="hero-carousel" aria-label="Hero con carrusel de imágenes">
+        <div class="hero-panel">
+          <h1 class="hero-title">
+            <span class="title-desktop">Agenda tu cita médica en minutos, sin filas</span>
+            <span class="title-tablet">Tu cita médica en minutos</span>
+          </h1>
+
+          <form class="hero-search" action="#" role="search">
+            <span class="hero-search__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="16.5" y1="16.5" x2="21" y2="21" />
+              </svg>
+            </span>
+            <input class="hero-search__input input-desktop" type="search" placeholder="Busca por síntoma, especialidad o doctor..." aria-label="Buscar cita" />
+            <input class="hero-search__input input-mobile" type="search" placeholder="Síntoma, especialidad, doctor..." aria-label="Buscar cita" />
+          </form>
+        </div>
+      </section>
+
+      <section class="specialties-section" aria-labelledby="specialties-title">
+        <h2 class="specialties-title" id="specialties-title">Especialidades</h2>
+        <div class="specialties-track" role="list">
+
+          <article class="specialty-card" role="listitem">
+            <!-- Llamamos directamente al archivo de tu carpeta -->
+            <img src="assets/icon-medicina.svg" alt="Ícono Medicina General" class="specialty-icon" />
+            
+            <span class="specialty-name">Medicina General</span>
+          </article>
+
+          <article class="specialty-card" role="listitem">
+            <img src="assets/icon-cardio.svg" alt="Ícono Cardiología" class="specialty-icon" />
+            
+            <span class="specialty-name">Cardiología</span>
+          </article>
+
+          <article class="specialty-card" role="listitem">
+            <img src="assets/icon-trauma.svg" alt="Ícono Traumatología" class="specialty-icon" />
+            
+            <span class="specialty-name">Traumatología</span>
+          </article>
+
+          <article class="specialty-card" role="listitem">
+            <img src="assets/icon-neumo.svg" alt="Ícono Neumología" class="specialty-icon" />
+            
+            <span class="specialty-name">Neumología</span>
+          </article>
+
+          <article class="specialty-card" role="listitem">
+            <img src="assets/icon-otorrino.svg" alt="Ícono Otorrinolaringología" class="specialty-icon" />
+            
+            <span class="specialty-name">Otorrinolaringología</span>
+          </article>
+
+          
+        </div>
+      </section>
+
+      <section class="affiliates-section" aria-labelledby="affiliates-title">
+        <h2 class="affiliates-title" id="affiliates-title">Clínicas Afiliadas</h2>
+        <div class="affiliates-slider">
+          <div class="affiliates-track">
+            <!-- Grupo 1 -->
+            <div class="affiliate-item"><img src="assets/logo-metropolitano.svg" alt="Metropolitano" /></div>
+            <div class="affiliate-item"><img src="assets/logo-northospital.svg" alt="Northospital" /></div>
+            <div class="affiliate-item"><img src="assets/logo-atlas.svg" alt="Atlas" /></div>
+            <div class="affiliate-item"><img src="assets/logo-axxis.svg" alt="Axxis" /></div>
+            <div class="affiliate-item"><img src="assets/logo-vozandes.svg" alt="Vozandes" /></div>
+            
+            <!-- Grupo 2 -->
+            <div class="affiliate-item"><img src="assets/logo-metropolitano.svg" alt="Metropolitano" /></div>
+            <div class="affiliate-item"><img src="assets/logo-northospital.svg" alt="Northospital" /></div>
+            <div class="affiliate-item"><img src="assets/logo-atlas.svg" alt="Atlas" /></div>
+            <div class="affiliate-item"><img src="assets/logo-axxis.svg" alt="Axxis" /></div>
+            <div class="affiliate-item"><img src="assets/logo-vozandes.svg" alt="Vozandes" /></div>
+            
+            <!-- Grupo 3 -->
+            <div class="affiliate-item"><img src="assets/logo-metropolitano.svg" alt="Metropolitano" /></div>
+            <div class="affiliate-item"><img src="assets/logo-northospital.svg" alt="Northospital" /></div>
+            <div class="affiliate-item"><img src="assets/logo-atlas.svg" alt="Atlas" /></div>
+            <div class="affiliate-item"><img src="assets/logo-axxis.svg" alt="Axxis" /></div>
+            <div class="affiliate-item"><img src="assets/logo-vozandes.svg" alt="Vozandes" /></div>
+            
+            <!-- Grupo 4 -->
+            <div class="affiliate-item"><img src="assets/logo-metropolitano.svg" alt="Metropolitano" /></div>
+            <div class="affiliate-item"><img src="assets/logo-northospital.svg" alt="Northospital" /></div>
+            <div class="affiliate-item"><img src="assets/logo-atlas.svg" alt="Atlas" /></div>
+            <div class="affiliate-item"><img src="assets/logo-axxis.svg" alt="Axxis" /></div>
+            <div class="affiliate-item"><img src="assets/logo-vozandes.svg" alt="Vozandes" /></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN PROMOCIONES DEL MES -->
+      <section class="promos-section" aria-labelledby="promos-title">
+        <h2 class="promos-title" id="promos-title">Promociones del Mes</h2>
+        
+        <div class="promos-container">
+          <!-- Banner 1 -->
+          <img src="assets/promo-1.jpg" alt="30% de descuento" class="promo-banner banner-1" />
+          
+          <!-- Banner 2 -->
+          <img src="assets/promo-2.jpg" alt="50% de descuento" class="promo-banner banner-2" />
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="footer-links">
+          <div class="footer-group">
+            <h3>Nosotros</h3>
+            <ul>
+              <li><a href="#">Historia</a></li>
+              <li><a href="#">Nuestros médicos</a></li>
+              <li><a href="#">Trabaja con nosotros</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Políticas</h3>
+            <ul>
+              <li><a href="#">Términos de servicio</a></li>
+              <li><a href="#">Privacidad de datos</a></li>
+              <li><a href="#">Uso de cookies</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Preguntas frecuentes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <img src="assets/logo-footer.jpg" alt="Logo UMA Hospital" class="footer-logo" />
+          <div class="footer-socials" aria-label="Redes sociales">
+            <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
