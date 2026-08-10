@@ -74,6 +74,107 @@ body {
   padding: 10px;
 }
 
+/* =========================================
+   NAVEGACIÓN DESPLEGABLE (DROPDOWNS)
+========================================= */
+.nav-item {
+  position: relative;
+  list-style: none;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Animación del ícono de flecha al pasar el ratón */
+.dropdown-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Contenedor flotante del menú */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  padding: 24px;
+  
+  /* Lo ocultamos con opacidad para permitir una transición suave */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Evita que el usuario haga clic cuando es invisible */
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 100;
+  display: flex;
+  gap: 32px;
+}
+
+/* Variación más ancha para "Mis Citas" */
+.mega-menu {
+  min-width: 480px;
+}
+
+/* Efecto de aparición magnética al hacer hover */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(10px);
+}
+
+/* Distribución de las columnas */
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Títulos de cada categoría */
+.dropdown-header {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #184175;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
+/* Sobrescribimos el color blanco de la barra para los enlaces internos */
+.nav-links .dropdown-menu a {
+  color: #34495e;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Efecto hover interactivo dentro del menú */
+.nav-links .dropdown-menu a:hover {
+  background: #f0f4f8; /* Gris azulado muy suave */
+  color: #184175;
+  padding-left: 14px; /* Ligero desplazamiento a la derecha */
+}
+
+/* Línea sutil que separa las dos columnas */
+.dropdown-divider {
+  width: 1px;
+  background: #e2e5e7;
+  margin: 0;
+}
+
 .nav-button {
   display: inline-flex;
   align-items: center;
