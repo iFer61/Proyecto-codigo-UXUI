@@ -980,3 +980,115 @@ body {
   50%, 95% { opacity: 1; }    
   100% { opacity: 0; }        
 }
+
+
+/* =========================================
+   PÁGINA ESTÁTICA: COSTOS
+========================================= */
+.costs-page {
+  /* Restringimos el ancho para que la lista no se estire demasiado en monitores grandes */
+  max-width: 840px; 
+  margin: 0 auto;
+  padding: 64px 21px;
+  width: 100%;
+}
+
+.costs-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.costs-title {
+  font-family: Lora, Georgia, serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #184175;
+  margin: 0 0 16px 0;
+}
+
+.costs-subtitle {
+  font-size: 16px;
+  color: #34495e;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.costs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: #ffffff;
+  border: 1px solid #e2e5e7;
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.cost-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: #4a90e2; /* El azul claro de tu diseño */
+}
+
+.cost-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cost-specialty {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f1c2d;
+}
+
+.cost-desc {
+  font-size: 14px;
+  color: #34495e;
+}
+
+.cost-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #175c4f; /* El verde acento de tu barra de filtros */
+  flex-shrink: 0;
+}
+
+.costs-disclaimer {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.costs-disclaimer p {
+  font-size: 13px;
+  color: #7f8c8d;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 599px) {
+  .costs-page {
+    padding: 48px 21px;
+  }
+
+  .costs-title {
+    font-size: 28px;
+  }
+
+  .cost-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+}

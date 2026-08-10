@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resultados de búsqueda UMA Hospital</title>
+    <title>Barra de navegación UMA Hospital</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -76,81 +76,72 @@
       </div>
     </nav>
 
-    <!-- Le devolvemos la clase 'main-content' para que empuje el footer -->
-    <main class="search-page-content main-content">
-      <header class="filters-bar">
-        <h1 class="filters-title">Resultados para: 'Dolor de Cabeza'</h1>
-        <div class="filters-actions">
-          <button class="filter-chip" type="button">Filtros</button>
-          <button class="filter-chip filter-chip--accent" type="button">Fecha: Cualquiera</button>
+<!-- INICIO DEL CONTENIDO CENTRAL: COSTOS -->
+    <main class="main-content costs-page">
+      <section class="costs-section" aria-labelledby="costs-title">
+        
+        <header class="costs-header">
+          <h1 class="costs-title" id="costs-title">Costos por Especialidad</h1>
+          <p class="costs-subtitle">Conoce el valor referencial promedio de las consultas médicas en nuestra red hospitalaria y clínicas afiliadas.</p>
+        </header>
+
+        <div class="costs-grid" role="list">
+          
+          <!-- Tarjeta de Precio 1 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Medicina General</h2>
+              <span class="cost-desc">Evaluación primaria, chequeos de rutina y derivaciones.</span>
+            </div>
+            <div class="cost-price">$35.00</div>
+          </article>
+
+          <!-- Tarjeta de Precio 2 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Cardiología</h2>
+              <span class="cost-desc">Valoración cardiovascular clínica (exámenes se facturan por separado).</span>
+            </div>
+            <div class="cost-price">$50.00</div>
+          </article>
+
+          <!-- Tarjeta de Precio 3 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Traumatología</h2>
+              <span class="cost-desc">Evaluación de lesiones óseas, musculares y articulares.</span>
+            </div>
+            <div class="cost-price">$45.00</div>
+          </article>
+
+          <!-- Tarjeta de Precio 4 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Neumología</h2>
+              <span class="cost-desc">Atención de vías respiratorias y evaluación de capacidad pulmonar.</span>
+            </div>
+            <div class="cost-price">$55.00</div>
+          </article>
+
+          <!-- Tarjeta de Precio 5 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Otorrinolaringología</h2>
+              <span class="cost-desc">Revisión integral de oídos, nariz y garganta.</span>
+            </div>
+            <div class="cost-price">$45.00</div>
+          </article>
+
         </div>
-      </header>
 
-      <div class="doctors-list">
-        <!-- PLANITLLA DOCTOR 1 -->
-        <article class="doctor-card">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Emilio Córdova</h3>
-              <p>Medicina General</p>
-            </div>
-          </div>
+        <footer class="costs-disclaimer">
+          <p>* Los valores indicados son un promedio referencial. El costo final puede variar dependiendo del profesional seleccionado, la clínica afiliada y los procedimientos adicionales requeridos durante la consulta.</p>
+        </footer>
 
-          <div class="doctor-schedule">
-            <h4>Próximos Turnos Disponibles</h4>
-            <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">09:30</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">10:30</button>
-              <button class="time-btn" type="button">15:00</button>
-              <button class="time-btn" type="button">15:30</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- PLANTILLA DOCTOR 2 (ESTADO VACÍO) -->
-        <article class="doctor-card doctor-card--empty">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Fernando Lema</h3>
-              <p>Medicina General</p>
-            </div>
-          </div>
-
-          <!-- Limpiamos el texto duplicado para igualar el diseño -->
-          <div class="doctor-schedule doctor-schedule--empty">
-            <h4 class="empty-text">Sin Turnos Disponibles</h4>
-            <button class="btn-calendar" type="button">Ver Calendario Completo</button>
-          </div>
-        </article>
-
-        <!-- PLANTILLA DOCTOR 3 -->
-        <article class="doctor-card">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Carlos Ruíz Luna</h3>
-              <p>Neumología</p>
-            </div>
-          </div>
-
-          <div class="doctor-schedule">
-            <h4>Próximos Turnos Disponibles</h4>
-            <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">14:00</button>
-              <button class="time-btn" type="button">14:30</button>
-            </div>
-          </div>
-        </article>
-      </div>
+      </section>
     </main>
 
-    <footer class="site-footer">
+        <footer class="site-footer">
       <div class="site-footer__inner">
         <div class="footer-links">
           <div class="footer-group">
