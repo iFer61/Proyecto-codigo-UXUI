@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resultados de búsqueda UMA Hospital</title>
+    <title>Barra de navegación UMA Hospital</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -50,9 +50,8 @@
                 <!-- Conectamos con el buscador/directorio médico -->
                 <a href="search-results.html">Selección de turnos</a>
                 <!-- Conectamos con la página de costos -->
-                <a href="costos.html">Costos</a>
+                <a href="costs-section.html">Costos</a>
                 <a href="#">Especialidades</a>
-                <!-- Conectamos con el buscador/directorio médico -->
                 <a href="#">Directorio médico</a>
               </div>
             </div>
@@ -81,77 +80,74 @@
       </div>
     </nav>
 
-    <!-- Le devolvemos la clase 'main-content' para que empuje el footer -->
-    <main class="search-page-content main-content">
-      <header class="filters-bar">
-        <h1 class="filters-title">Resultados para: 'Dolor de Cabeza'</h1>
-        <div class="filters-actions">
-          <button class="filter-chip" type="button">Filtros</button>
-          <button class="filter-chip filter-chip--accent" type="button">Fecha: Cualquiera</button>
+<!-- INICIO DEL CONTENIDO CENTRAL: POLÍTICAS UNIFICADAS -->
+    <main class="main-content legal-page">
+      <div class="legal-layout">
+        
+        <!-- TARJETA DE SALTO RÁPIDO (Menú Lateral) -->
+        <aside class="legal-sidebar">
+          <div class="legal-sidebar-card">
+            <h3>Documentos Legales</h3>
+            <nav class="legal-nav">
+              <!-- Los enlaces ancla apuntan a los ID de abajo -->
+              <a href="#terminos" class="legal-nav-link">Términos de Servicio</a>
+              <a href="#privacidad" class="legal-nav-link">Privacidad de Datos</a>
+              <a href="#cookies" class="legal-nav-link">Uso de Cookies</a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- CONTENIDO DE LAS POLÍTICAS -->
+        <div class="legal-container">
+          
+          <!-- SECCIÓN 1: TÉRMINOS -->
+          <section id="terminos" class="legal-section">
+            <header class="legal-header">
+              <p class="legal-date">Última actualización: 10 de Agosto, 2026</p>
+              <h1 class="legal-title">Términos de Servicio</h1>
+            </header>
+            <article class="legal-content">
+              <p>Al acceder y utilizar la plataforma de agendamiento de UMA Hospital, usted acepta cumplir con los siguientes términos y condiciones que rigen el uso de nuestro software médico.</p>
+              <h2>1. Uso de la cuenta</h2>
+              <p>El paciente es responsable de mantener la confidencialidad de sus credenciales de acceso. Cualquier cita agendada desde su cuenta será considerada válida y sujeta a nuestras políticas de cancelación.</p>
+              <h2>2. Disponibilidad del servicio</h2>
+              <p>Nos esforzamos por mantener la plataforma operativa 24/7, sin embargo, UMA Hospital se reserva el derecho de realizar mantenimientos programados que podrían interrumpir temporalmente el servicio.</p>
+            </article>
+          </section>
+
+          <!-- Separador visual -->
+          <hr class="legal-divider">
+
+          <!-- SECCIÓN 2: PRIVACIDAD -->
+          <section id="privacidad" class="legal-section">
+            <header class="legal-header">
+              <h1 class="legal-title">Privacidad de Datos</h1>
+            </header>
+            <article class="legal-content">
+              <p>En UMA Hospital, respetamos su privacidad y protegemos los datos médicos que comparte con nosotros. Toda la información es procesada mediante protocolos de encriptación de extremo a extremo.</p>
+              <h2>1. Información recopilada</h2>
+              <p>Recopilamos datos de identificación, información de contacto y el historial de síntomas o especialidades consultadas en nuestro motor de búsqueda.</p>
+              <h2>2. Compartición de datos</h2>
+              <p>Sus datos solo serán compartidos con la clínica afiliada o el especialista seleccionado al momento de confirmar un turno, bajo estrictos estándares de confidencialidad médica.</p>
+            </article>
+          </section>
+
+          <!-- Separador visual -->
+          <hr class="legal-divider">
+
+          <!-- SECCIÓN 3: COOKIES -->
+          <section id="cookies" class="legal-section">
+            <header class="legal-header">
+              <h1 class="legal-title">Uso de Cookies</h1>
+            </header>
+            <article class="legal-content">
+              <p>Utilizamos cookies y tecnologías similares para mejorar su experiencia de navegación, recordar sus preferencias de filtrado de médicos y garantizar la seguridad de su sesión.</p>
+              <h2>1. Tipos de cookies</h2>
+              <p>Implementamos cookies estrictamente necesarias para el funcionamiento del sitio (como el inicio de sesión) y cookies analíticas para entender cómo interactúa con nuestra interfaz.</p>
+            </article>
+          </section>
+
         </div>
-      </header>
-
-      <div class="doctors-list">
-        <!-- PLANITLLA DOCTOR 1 -->
-        <article class="doctor-card">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Emilio Córdova</h3>
-              <p>Medicina General</p>
-            </div>
-          </div>
-
-          <div class="doctor-schedule">
-            <h4>Próximos Turnos Disponibles</h4>
-            <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">09:30</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">10:30</button>
-              <button class="time-btn" type="button">15:00</button>
-              <button class="time-btn" type="button">15:30</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- PLANTILLA DOCTOR 2 (ESTADO VACÍO) -->
-        <article class="doctor-card doctor-card--empty">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Fernando Lema</h3>
-              <p>Medicina General</p>
-            </div>
-          </div>
-
-          <!-- Limpiamos el texto duplicado para igualar el diseño -->
-          <div class="doctor-schedule doctor-schedule--empty">
-            <h4 class="empty-text">Sin Turnos Disponibles</h4>
-            <button class="btn-calendar" type="button">Ver Calendario Completo</button>
-          </div>
-        </article>
-
-        <!-- PLANTILLA DOCTOR 3 -->
-        <article class="doctor-card">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Carlos Ruíz Luna</h3>
-              <p>Neumología</p>
-            </div>
-          </div>
-
-          <div class="doctor-schedule">
-            <h4>Próximos Turnos Disponibles</h4>
-            <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">14:00</button>
-              <button class="time-btn" type="button">14:30</button>
-            </div>
-          </div>
-        </article>
       </div>
     </main>
 

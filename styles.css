@@ -864,8 +864,13 @@ body {
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 24px;
+  
+  /* NUEVO: Restringimos el ancho para juntar las columnas */
+  max-width: 1000px; 
+  /* NUEVO: Centramos este bloque en medio de la pantalla */
+  margin: 0 auto;   
 }
 
 .footer-group {
@@ -1204,5 +1209,149 @@ details[open] .faq-icon {
 
   .faq-answer {
     padding: 0 20px 20px 20px;
+  }
+}
+
+/* =========================================
+   DESPLAZAMIENTO SUAVE PARA ANCHOR LINKS
+========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   PÁGINA LEGAL UNIFICADA CON SIDEBAR
+========================================= */
+.legal-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 64px 21px;
+}
+
+.legal-layout {
+  display: flex;
+  gap: 40px;
+  max-width: 1100px; /* Más ancho para que quepa el menú lateral */
+  margin: 0 auto;
+  align-items: flex-start; /* Evita que el menú lateral se estire verticalmente */
+}
+
+/* Tarjeta de Salto Rápido (Sidebar) */
+.legal-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky; /* ¡Magia! Esto hace que el menú se quede fijo al hacer scroll */
+  top: 40px; 
+}
+
+.legal-sidebar-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e2e5e7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.legal-sidebar-card h3 {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #7f8c8d;
+  letter-spacing: 0.5px;
+}
+
+.legal-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-nav-link {
+  text-decoration: none;
+  color: #34495e;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.legal-nav-link:hover {
+  background: #f0f4f8;
+  color: #184175;
+  padding-left: 16px; /* Pequeña animación al pasar el ratón */
+}
+
+/* Contenedor del Texto Legal */
+.legal-container {
+  flex: 1; /* Ocupa el resto del espacio disponible */
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e5e7;
+}
+
+/* Como el sidebar es pegajoso, le damos un margen superior a cada sección 
+   para que el título no quede oculto bajo el borde superior de la pantalla */
+.legal-section {
+  scroll-margin-top: 40px; 
+}
+
+.legal-header {
+  margin-bottom: 24px;
+}
+
+.legal-date {
+  font-size: 14px;
+  color: #7f8c8d;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.legal-title {
+  font-family: Lora, Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #184175;
+  margin: 0;
+}
+
+.legal-content {
+  color: #34495e;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legal-content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f1c2d;
+  margin: 32px 0 16px 0;
+}
+
+.legal-content p {
+  margin: 0 0 16px 0;
+}
+
+.legal-divider {
+  border: 0;
+  border-top: 1px solid #e2e5e7;
+  margin: 48px 0;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+  .legal-layout {
+    flex-direction: column; /* Apila el menú lateral arriba del texto */
+  }
+  
+  .legal-sidebar {
+    width: 100%;
+    position: static; /* Quitamos lo fijo en móviles para no comer espacio de pantalla */
+  }
+  
+  .legal-container {
+    padding: 32px 20px;
   }
 }
