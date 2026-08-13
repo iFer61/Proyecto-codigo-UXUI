@@ -178,7 +178,12 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  width: min(775px, 100%);
+  
+  /* Declaración explícita de anchos */
+  width: 100%;
+  max-width: 775px; /* Límite máximo */
+  min-width: 300px; /* Límite mínimo */
+  
   padding: 12px 16px;
   border-radius: 12px;
   background: #ffffff;
@@ -492,9 +497,9 @@ body {
 
 .promo-banner {
   width: calc(50% - 16px); /* Mitad de pantalla menos la mitad del gap */
-  height: 240px; /* Tu altura fija */
+  height: auto; /* NUEVO: La altura crece o se encoge proporcionalmente al ancho */
   border-radius: 16px;
-  object-fit: cover;
+  display: block;
 }
 
 /* =========================================
@@ -506,18 +511,16 @@ body {
   }
   
   .promos-container {
-    display: block; /* Rompemos el Flexbox */
-    position: relative; /* Convertimos el contenedor en un marco */
-    height: 240px; 
+    display: grid; /* NUEVO: Creamos una cuadrícula de una sola celda */
+    grid-template-areas: "banner";
+    height: auto; /* El contenedor se ajustará a la altura de las imágenes automáticamente */
   }
   
   .promo-banner {
-    position: absolute; /* Apilamos una imagen sobre la otra */
-    top: 0;
-    left: 0;
-    width: 100%; /* Un único recuadro centrado */
-    height: 100%;
-    opacity: 0; /* Las ocultamos por defecto */
+    grid-area: banner; /* Ambas imágenes se apilan en la misma celda de la cuadrícula */
+    width: 100%; 
+    height: auto; /* Mantenemos la proporcionalidad */
+    opacity: 0; 
   }
 
   /* Asignamos la animación infinita de 10 segundos (5s por imagen) */
@@ -763,32 +766,21 @@ body {
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 24px;
+  
+  /* NUEVO: Restringimos el ancho y lo centramos para despegarlo de los bordes */
+  max-width: 900px; 
+  margin: 0 auto;
 }
 
 .footer-group {
   display: flex;
   flex-direction: column;
-}
-
-/* ALINEACIÓN EXACTA PARA PC */
-/* 1. Nosotros (Izquierda) */
-.footer-group:nth-child(1) {
-  align-items: flex-start;
+  
+  /* NUEVO: Forzamos la alineación a la izquierda para TODAS las columnas */
+  align-items: flex-start; 
   text-align: left;
-}
-
-/* 2. Políticas (Centro) */
-.footer-group:nth-child(2) {
-  align-items: center;
-  text-align: center;
-}
-
-/* 3. Soporte (Derecha) */
-.footer-group:nth-child(3) {
-  align-items: flex-end;
-  text-align: right;
 }
 
 .footer-group h3 {
@@ -851,16 +843,14 @@ body {
 ========================================= */
 @media (max-width: 599px) {
   .footer-links {
-    grid-template-columns: 1fr; /* Mantiene 1 sola columna para los textos */
+    grid-template-columns: 1fr; /* Apila las columnas una debajo de otra */
     gap: 32px;
   }
 
-  /* Textos centrados en móvil */
-  .footer-group:nth-child(1),
-  .footer-group:nth-child(2),
-  .footer-group:nth-child(3) {
-    align-items: center;
-    text-align: center;
+  /* NUEVO: Respetamos la alineación a la izquierda dictada por el profesor */
+  .footer-group {
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
