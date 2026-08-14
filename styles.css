@@ -7,7 +7,7 @@
 }
 
 body {
-  margin: 0 auto; /* Centra el lienzo en monitores gigantes */
+  margin: 0 auto;
   min-height: 100vh;
   min-width: 1025px; /* Límite inferior de PC */
   max-width: 1800px; /* Límite superior de PC */
@@ -38,14 +38,6 @@ body {
 
 .navbar__menu {
   display: none;
-  align-items: center;
-  justify-content: center;
-  width: 35px;
-  height: 35px;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
 }
 
 .nav-logo {
@@ -118,13 +110,13 @@ body {
 .hero-carousel::before {
   background-image: url("assets/hero-bg-2.jpg");
   animation: hero-fade-2 15s infinite ease-in-out;
-  z-index: 0
+  z-index: 0;
 }
 
 .hero-carousel::after {
   background-image: url("assets/hero-bg-3.png");
   animation: hero-fade-3 15s infinite ease-in-out;
-  z-index: 0
+  z-index: 0;
 }
 
 .hero-panel {
@@ -154,7 +146,7 @@ body {
   gap: 16px;
   width: 100%;
   max-width: 775px; 
-  min-width: 200px; 
+  min-width: 300px; 
   padding: 12px 16px;
   border-radius: 12px;
   background: #ffffff;
@@ -184,9 +176,7 @@ body {
   color: rgba(0, 0, 0, 0.4);
 } 
 
-.title-tablet {
-  display: none;
-}
+.title-tablet,
 .input-mobile {
   display: none;
 }
@@ -218,17 +208,13 @@ body {
   margin-bottom: 24px;
 }
 
+/* Corrección de Especialidades en styles.css (PC) */
 .specialties-track {
   display: flex;
+  flex-wrap: wrap; /* ¡La magia! Permite que las tarjetas bajen a otra línea si no caben */
   gap: 24px;
-  overflow-x: auto; 
+  justify-content: center;
   padding-bottom: 16px; 
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
-}
-
-.specialties-track::-webkit-scrollbar {
-  display: none; 
 }
 
 .specialty-card {
@@ -266,12 +252,6 @@ body {
   text-align: center;
 }
 
-@media (min-width: 1025px) {
-  .specialties-track {
-    justify-content: center;
-  }
-}
-
 .affiliates-section {
   max-width: 1440px;
   margin: 64px auto;
@@ -298,7 +278,6 @@ body {
   gap: 64px;
   width: max-content;
   animation: affiliates-marquee 20s linear infinite;
-  will-change: transform; 
 }
 
 .affiliate-item {
@@ -317,12 +296,8 @@ body {
 }
 
 @keyframes affiliates-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-25% - 16px));
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-25% - 16px)); }
 }
 
 .promos-section {
@@ -504,11 +479,6 @@ body {
   background: #f8f9fa;
 }
 
-.doctor-schedule--empty {
-  justify-content: center;
-  gap: 20px;
-}
-
 .btn-calendar {
   border: 1px solid #bdc3c7;
   border-radius: 20px;
@@ -533,8 +503,8 @@ body {
 }
 
 .site-footer__inner {
-  max-width: 1800px; /* Límite máximo para monitores grandes */
-  min-width: 1000px; /* Límite mínimo antes de saltar a la vista de tablet */
+  max-width: 1800px; 
+  min-width: 1000px; 
   margin: 0 auto;
   padding: 48px 21px;
 }
@@ -550,8 +520,8 @@ body {
 .footer-group {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  text-align: center;
+  align-items: flex-start; 
+  text-align: left;
 }
 
 .footer-group h3 {
@@ -607,16 +577,4 @@ body {
   width: 24px;
   height: 24px;
   display: block;
-}
-
-@keyframes crossfade-1 {
-  0%, 45% { opacity: 1; }     
-  50%, 95% { opacity: 0; }    
-  100% { opacity: 1; }        
-}
-
-@keyframes crossfade-2 {
-  0%, 45% { opacity: 0; }     
-  50%, 95% { opacity: 1; }    
-  100% { opacity: 0; }        
 }
