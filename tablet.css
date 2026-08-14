@@ -66,3 +66,15 @@
 .banner-2 {
     animation: crossfade-2 10s infinite;
 }
+
+/* =========================================
+   FOOTER (TABLET)
+========================================= */
+.site-footer__inner {
+  min-width: 100%; /* Resetea el límite de PC para que se adapte a la tablet */
+}
+
+.footer-group {
+  align-items: center; /* Centra los elementos de la columna */
+  text-align: center;  /* Centra el texto */
+}

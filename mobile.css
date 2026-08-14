@@ -119,3 +119,9 @@
     align-items: center;
     text-align: center; /* Corregido al requerimiento explícito */
 }
+
+.footer-group h3 {
+  font-size: 18px;   /* Ligeramente más grande */
+  font-weight: 800;  /* Mayor grosor para resaltar */
+  margin-bottom: 20px; /* Un poco más de aire para separarlo de la lista */
+}
