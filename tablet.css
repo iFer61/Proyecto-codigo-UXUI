@@ -5,12 +5,12 @@
 }
 
 .hero-carousel {
-    padding: 100px 120px;
+    padding: 80px 40px; /* Reducimos los 120px a 40px para evitar el aplastamiento */
     min-height: 480px;
 }
 
 .hero-title {
-    font-size: 40px;
+    font-size: 48px;
 }
 
 .hero-search {
