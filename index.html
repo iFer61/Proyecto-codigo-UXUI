@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Barra de navegación UMA Hospital</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UMA Hospital - Inicio</title>
+  <!-- 1. El diseño base de PC (Siempre activo) -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- 2. El diseño de Tablet (Se activa de 1024px para abajo) -->
+  <link rel="stylesheet" href="tablet.css" media="screen and (max-width: 1024px)" />
+  
+  <!-- 3. El diseño Móvil (Se activa de 599px para abajo) -->
+  <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 599px)" />
+</head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
       <div class="navbar__content">
@@ -17,7 +24,7 @@
           </svg>
         </button>
 
-        <img src="assets/logo.png" alt="Logo UMA Hospital" class="nav-logo" />
+        <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
 
         <ul class="nav-links">
           <li><a href="#">Mis Citas</a></li>
@@ -171,7 +178,7 @@
         <hr class="footer-divider" />
 
         <div class="footer-bottom">
-          <img src="assets/logo-footer.jpg" alt="Logo UMA Hospital" class="footer-logo" />
+          <img src="assets/logo-footer.svg" alt="Logo UMA Hospital" class="footer-logo" />
           <div class="footer-socials" aria-label="Redes sociales">
             <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
             <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>

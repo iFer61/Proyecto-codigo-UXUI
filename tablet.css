@@ -1,0 +1,68 @@
+.navbar__content {
+    max-width: 1025px;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.hero-carousel {
+    padding: 100px 120px;
+    min-height: 480px;
+}
+
+.hero-title {
+    font-size: 40px;
+}
+
+.hero-search {
+    width: 100%;
+    max-width: 680px; /* Límite explícito */
+}
+
+.title-desktop {
+    display: none;
+}
+
+.title-tablet {
+    display: block; 
+}
+
+.specialties-section {
+    margin-top: 40px;
+}
+
+.specialties-title {
+    font-size: 22px;
+}
+
+.affiliates-section {
+    margin: 48px auto;
+}
+
+.affiliates-title {
+    font-size: 24px;
+}
+
+.promos-title {
+    font-size: 24px;
+}
+
+.promos-container {
+    display: grid; 
+    grid-template-areas: "banner";
+    height: auto; 
+}
+
+.promo-banner {
+    grid-area: banner; 
+    width: 100%; 
+    height: auto; 
+    opacity: 0; 
+}
+
+.banner-1 {
+    animation: crossfade-1 10s infinite;
+}
+
+.banner-2 {
+    animation: crossfade-2 10s infinite;
+}

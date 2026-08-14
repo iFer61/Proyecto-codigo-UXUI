@@ -11,7 +11,6 @@ body {
   min-height: 100vh;
   font-family: Inter, system-ui, sans-serif;
   background: #ffffff;
-
   display: flex;
   flex-direction: column;
 }
@@ -22,8 +21,6 @@ body {
 }
 
 .main-content {
-  /* NUEVO: Esto obliga al contenido principal a expandirse como un resorte,
-     empujando el footer hacia el final de la pantalla */
   flex: 1; 
 }
 
@@ -87,31 +84,6 @@ body {
   font-weight: 600;
   font-size: 16px;
   line-height: 1;
-}
-
-@media (max-width: 1024px) {
-  .navbar__content {
-    max-width: 1025px;
-    gap: 16px;
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 599px) {
-  .navbar__content {
-    max-width: 599px;
-    justify-content: flex-start;
-    gap: 16px;
-  }
-
-  .navbar__menu {
-    display: flex;
-  }
-
-  .nav-links,
-  .nav-button {
-    display: none;
-  }
 }
 
 .hero-carousel {
@@ -178,12 +150,9 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  
-  /* Declaración explícita de anchos */
   width: 100%;
-  max-width: 775px; /* Límite máximo */
-  min-width: 300px; /* Límite mínimo */
-  
+  max-width: 775px; 
+  min-width: 300px; 
   padding: 12px 16px;
   border-radius: 12px;
   background: #ffffff;
@@ -211,9 +180,8 @@ body {
 
 .hero-search__input::placeholder {
   color: rgba(0, 0, 0, 0.4);
-} /* <- ¡AQUÍ CERRAMOS EL PLACEHOLDER PRIMERO! */
+} 
 
-/* AHORA SÍ: Ocultamos las versiones cortas por defecto (Vista de PC) */
 .title-tablet {
   display: none;
 }
@@ -222,77 +190,26 @@ body {
 }
 
 @keyframes hero-fade-2 {
-  0%, 23% { opacity: 0; }    /* Espera oculta mientras se ve la imagen 1 */
-  33%, 56% { opacity: 1; }   /* Se muestra totalmente en su turno */
-  66%, 100% { opacity: 0; }  /* Se oculta para dar paso a la imagen 3 */
+  0%, 23% { opacity: 0; }    
+  33%, 56% { opacity: 1; }   
+  66%, 100% { opacity: 0; }  
 }
 
 @keyframes hero-fade-3 {
-  0%, 56% { opacity: 0; }    /* Espera oculta mientras pasan la 1 y la 2 */
-  66%, 90% { opacity: 1; }   /* Se muestra totalmente en su turno */
-  100% { opacity: 0; }       /* Se desvanece suavemente volviendo a la imagen 1 */
-}
-
-@media (max-width: 1024px) {
-  .hero-carousel {
-    padding: 100px 120px;
-    min-height: 480px;
-  }
-
-  .hero-title {
-    font-size: 40px;
-  }
-
-  .hero-search {
-    width: min(680px, 100%);
-  }
-
-  .title-desktop {
-    display: none;
-  }
-
-  .title-tablet {
-    display: block; 
-  }
-}
-
-@media (max-width: 599px) {
-  .hero-carousel {
-    padding: 64px 20px;
-    min-height: 420px;
-  }
-
-  .hero-panel {
-    gap: 20px;
-  }
-
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .hero-search {
-    width: 100%;
-    padding: 14px 16px;
-  }
-
-  .input-desktop {
-    display: none;
-  }
-  .input-mobile {
-    display: block;
-    width: 100%;
-  }
+  0%, 56% { opacity: 0; }    
+  66%, 90% { opacity: 1; }   
+  100% { opacity: 0; }       
 }
 
 .specialties-section {
   max-width: 1440px;
-  margin: 48px auto; /* Centra toda la sección en la pantalla */
-  padding: 0 21px; /* Alinea con el margen del menú y el hero */
+  margin: 48px auto; 
+  padding: 0 21px; 
   width: 100%;
 }
 
 .specialties-title {
-  font-family: Lora, Georgia, serif; /* Tipografía Serif del diseño original */
+  font-family: Lora, Georgia, serif; 
   font-size: 28px;
   font-weight: 700;
   color: #0f1c2d;
@@ -302,21 +219,19 @@ body {
 .specialties-track {
   display: flex;
   gap: 24px;
-  overflow-x: auto; /* Habilita el deslizamiento horizontal */
-  padding-bottom: 16px; /* Da espacio para que no se corte la sombra de las tarjetas */
-  
-  /* Truco para ocultar la barra de scroll visualmente pero mantener la función */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE y Edge */
+  overflow-x: auto; 
+  padding-bottom: 16px; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 .specialties-track::-webkit-scrollbar {
-  display: none; /* Chrome, Safari y Opera */
+  display: none; 
 }
 
 .specialty-card {
-  flex: 0 0 auto; /* ¡CRUCIAL! flex-shrink: 0 evita que las tarjetas se aplasten */
-  width: 220px; /* Ancho fijo para mantener la uniformidad */
+  flex: 0 0 auto; 
+  width: 220px; 
   background: #ffffff;
   border-radius: 16px;
   padding: 32px 24px;
@@ -325,14 +240,14 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  border: 1px solid #E2E5E7; /* El borde gris sutil */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03); /* Sombra suave */
+  border: 1px solid #E2E5E7; 
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03); 
   transition: transform 0.2s ease;
   cursor: pointer;
 }
 
 .specialty-card:hover {
-  transform: translateY(-5px); /* Pequeña animación al pasar el ratón */
+  transform: translateY(-5px); 
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.06);
 }
 
@@ -349,57 +264,23 @@ body {
   text-align: center;
 }
 
-/* Centra las tarjetas de especialidades solo en pantallas grandes */
 @media (min-width: 1025px) {
   .specialties-track {
     justify-content: center;
   }
 }
 
-@media (max-width: 1024px) {
-  .specialties-section {
-    margin-top: 40px;
-  }
-
-  .specialties-title {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 599px) {
-  .specialties-section {
-    margin-top: 32px;
-    width: calc(100% - 24px);
-  }
-
-  .specialties-section {
-    margin: 32px auto;
-  }
-
-  .specialties-title {
-    font-size: 24px;
-  }
-
-  .specialty-card {
-    width: 180px;
-    padding: 24px 16px;
-  }
-}
-
-/* =========================================
-   SECCIÓN CLÍNICAS AFILIADAS
-========================================= */
 .affiliates-section {
   max-width: 1440px;
   margin: 64px auto;
-  padding: 0 21px; /* Restauramos la alineación exacta del menú y especialidades */
+  padding: 0 21px; 
   width: 100%;
 }
 
 .affiliates-title {
-  margin: 0 0 24px 0; /* Separación idéntica a la sección anterior */
+  margin: 0 0 24px 0; 
   font-family: Lora, Georgia, serif;
-  font-size: 28px; /* Igualamos el tamaño al título de Especialidades */
+  font-size: 28px; 
   font-weight: 700;
   color: #0f1c2d;
 }
@@ -415,7 +296,7 @@ body {
   gap: 64px;
   width: max-content;
   animation: affiliates-marquee 20s linear infinite;
-  will-change: transform; /* Optimiza la animación en el navegador */
+  will-change: transform; 
 }
 
 .affiliate-item {
@@ -427,51 +308,21 @@ body {
 }
 
 .affiliate-item img {
-  height: 64px; /* Les devolvemos su tamaño y presencia original */
+  height: 64px; 
   max-width: 200px;
   width: auto;
   object-fit: contain;
-  /* Eliminamos el filtro gris y la opacidad para que brillen a todo color */
 }
 
-/* Animación del Carrusel */
 @keyframes affiliates-marquee {
   from {
     transform: translateX(0);
   }
   to {
-    /* Desplaza exactamente 1 grupo de 5 logos hacia la izquierda */
     transform: translateX(calc(-25% - 16px));
   }
 }
 
-/* Responsividad */
-@media (max-width: 1024px) {
-  .affiliates-section {
-    margin: 48px auto;
-  }
-  .affiliates-title {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 599px) {
-  .affiliates-section {
-    margin: 32px auto;
-  }
-  .affiliates-title {
-    font-size: 24px;
-  }
-  .affiliate-item img {
-    height: 48px; /* Tamaño adaptado para móviles */
-    max-width: 140px;
-  }
-}
-
-
-/* =========================================
-   SECCIÓN PROMOCIONES DEL MES
-========================================= */
 .promos-section {
   max-width: 1440px;
   margin: 64px auto;
@@ -487,60 +338,20 @@ body {
   margin-bottom: 24px;
 }
 
-/* VISTA DE PC: Dos recuadros estáticos lado a lado */
 .promos-container {
   display: flex;
-  gap: 32px; /* Tu espacio de 32px */
+  gap: 32px; 
   justify-content: center;
   width: 100%;
 }
 
 .promo-banner {
-  width: calc(50% - 16px); /* Mitad de pantalla menos la mitad del gap */
-  height: auto; /* NUEVO: La altura crece o se encoge proporcionalmente al ancho */
+  width: calc(50% - 16px); 
+  height: auto; 
   border-radius: 16px;
   display: block;
 }
 
-/* =========================================
-   VISTA TABLET Y MÓVIL (Desvanecimiento)
-========================================= */
-@media (max-width: 1024px) {
-  .promos-title {
-    font-size: 24px;
-  }
-  
-  .promos-container {
-    display: grid; /* NUEVO: Creamos una cuadrícula de una sola celda */
-    grid-template-areas: "banner";
-    height: auto; /* El contenedor se ajustará a la altura de las imágenes automáticamente */
-  }
-  
-  .promo-banner {
-    grid-area: banner; /* Ambas imágenes se apilan en la misma celda de la cuadrícula */
-    width: 100%; 
-    height: auto; /* Mantenemos la proporcionalidad */
-    opacity: 0; 
-  }
-
-  /* Asignamos la animación infinita de 10 segundos (5s por imagen) */
-  .banner-1 {
-    animation: crossfade-1 10s infinite;
-  }
-  .banner-2 {
-    animation: crossfade-2 10s infinite;
-  }
-}
-
-@media (max-width: 599px) {
-  .promos-section {
-    margin: 32px auto;
-  }
-}
-
-/* =========================================
-   PÁGINA DE RESULTADOS DE BÚSQUEDA
-========================================= */
 .search-page-content {
   max-width: 1440px;
   margin: 0 auto;
@@ -621,7 +432,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: #E5F0FA; /* El azul claro de tu diseño en lugar del gris genérico */
+  background: #E5F0FA; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -639,7 +450,7 @@ body {
   font-family: Lora, Georgia, serif;
   font-size: 22px;
   font-weight: 500;
-  color: #4a90e2; /* Azul vibrante para los nombres */
+  color: #4a90e2; 
 }
 
 .doctor-meta p {
@@ -653,7 +464,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  min-width: 340px; /* Le damos un poco más de aire a la grilla */
+  min-width: 340px; 
 }
 
 .doctor-schedule h4, .empty-text {
@@ -669,12 +480,12 @@ body {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  max-width: 320px; /* Evita que los botones se estiren demasiado */
+  max-width: 320px; 
 }
 
 .time-btn {
   border: 1px solid #bdc3c7;
-  border-radius: 20px; /* Bordes más redondeados tipo "píldora" */
+  border-radius: 20px; 
   padding: 8px 16px;
   min-width: 80px;
   background: #ffffff;
@@ -713,49 +524,10 @@ body {
   border-color: #184175;
 }
 
-@media (max-width: 599px) {
-  .search-page-content {
-    padding: 24px 12px 48px;
-  }
-
-  .filters-bar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .filters-title {
-    font-size: 15px;
-  }
-
-  .doctor-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 24px 20px;
-  }
-
-  .doctor-info {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .doctor-schedule {
-    min-width: unset;
-    width: 100%;
-  }
-
-  .time-slots-grid {
-    justify-content: center;
-  }
-}
-
-/* =========================================
-   SECCIÓN FOOTER
-========================================= */
 .site-footer {
   background: #184175;
   color: #ffffff;
-  margin-top: 0; /* Eliminamos el exceso de espacio en PC */
+  margin-top: 0; 
 }
 
 .site-footer__inner {
@@ -768,8 +540,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 24px;
-  
-  /* NUEVO: Restringimos el ancho y lo centramos para despegarlo de los bordes */
   max-width: 900px; 
   margin: 0 auto;
 }
@@ -777,8 +547,6 @@ body {
 .footer-group {
   display: flex;
   flex-direction: column;
-  
-  /* NUEVO: Forzamos la alineación a la izquierda para TODAS las columnas */
   align-items: flex-start; 
   text-align: left;
 }
@@ -838,26 +606,6 @@ body {
   display: block;
 }
 
-/* =========================================
-   RESPONSIVIDAD (TABLET Y MÓVIL)
-========================================= */
-@media (max-width: 599px) {
-  .footer-links {
-    grid-template-columns: 1fr; /* Apila las columnas una debajo de otra */
-    gap: 32px;
-  }
-
-  /* NUEVO: Respetamos la alineación a la izquierda dictada por el profesor */
-  .footer-group {
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-
-/* =========================================
-   MATEMÁTICA DEL CROSSFADE (PROMOCIONES MÓVIL)
-   (Restaurado en su lugar correcto)
-========================================= */
 @keyframes crossfade-1 {
   0%, 45% { opacity: 1; }     
   50%, 95% { opacity: 0; }    
