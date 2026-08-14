@@ -1,3 +1,14 @@
+body {
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 300px; /* Límite inferior de Móvil */
+    max-width: 599px; /* Límite superior de Móvil */
+    font-family: Inter, system-ui, sans-serif;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar__content {
     max-width: 100%; /* Ajustado para el menú hamburguesa */
     justify-content: flex-start;

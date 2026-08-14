@@ -7,9 +7,10 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto; /* Centra el lienzo en monitores gigantes */
   min-height: 100vh;
-  min-width: 300px; /* NUEVO: El límite absoluto para toda la página */
+  min-width: 1025px; /* Límite inferior de PC */
+  max-width: 1800px; /* Límite superior de PC */
   font-family: Inter, system-ui, sans-serif;
   background: #ffffff;
   display: flex;

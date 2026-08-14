@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UMA Hospital - Inicio</title>
-  <!-- 1. El diseño base de PC (Siempre activo) -->
-  <link rel="stylesheet" href="styles.css" />
-  
-  <!-- 2. El diseño de Tablet (Se activa de 1024px para abajo) -->
-  <link rel="stylesheet" href="tablet.css" media="screen and (max-width: 1024px)" />
-  
-  <!-- 3. El diseño Móvil (Se activa de 599px para abajo) -->
-  <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 599px)" />
+<!-- 1. El trabajo de MÓVIL (Se enciende de 300px a 599px) -->
+    <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" />
+
+    <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
+    <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />
+
+    <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 1800px) -->
+    <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 1800px)" />
 </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">

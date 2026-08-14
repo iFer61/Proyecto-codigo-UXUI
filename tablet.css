@@ -1,3 +1,14 @@
+body {
+    margin: 0 auto;
+    min-height: 100vh;
+    min-width: 600px;  /* Límite inferior de Tablet */
+    max-width: 1024px; /* Límite superior de Tablet */
+    font-family: Inter, system-ui, sans-serif;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar__content {
     max-width: 1025px;
     gap: 16px;
