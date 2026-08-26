@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barra de navegación UMA Hospital</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
@@ -18,7 +18,7 @@
         </button>
 
         <a href="index.html" aria-label="Volver a la página de inicio" class="nav-logo-link">
-          <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
+          <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Logo UMA Hospital" />
         </a>
 
         <ul class="nav-links">
@@ -52,7 +52,6 @@
                 <!-- Conectamos con la página de costos -->
                 <a href="costs-section.html">Costos</a>
                 <a href="#">Especialidades</a>
-                <!-- Conectamos con el buscador/directorio médico -->
                 <a href="#">Directorio médico</a>
               </div>
             </div>
@@ -81,72 +80,57 @@
       </div>
     </nav>
 
-<!-- INICIO DEL CONTENIDO CENTRAL: COSTOS -->
-    <main class="main-content costs-page">
-      <section class="costs-section" aria-labelledby="costs-title">
-        
-        <header class="costs-header">
-          <h1 class="costs-title" id="costs-title">Costos por Especialidad</h1>
-          <p class="costs-subtitle">Conoce el valor referencial promedio de las consultas médicas en nuestra red hospitalaria y clínicas afiliadas.</p>
-        </header>
+<main class="main-content auth-page">
+  <div class="auth-container">
+    <div class="auth-header">
+      <h1 class="auth-title">Crea tu cuenta</h1>
+      <p class="auth-subtitle">Regístrate para asegurar tu turno y gestionar tus citas médicas.</p>
+    </div>
 
-        <div class="costs-grid" role="list">
-          
-          <!-- Tarjeta de Precio 1 -->
-          <article class="cost-item" role="listitem">
-            <div class="cost-info">
-              <h2 class="cost-specialty">Medicina General</h2>
-              <span class="cost-desc">Evaluación primaria, chequeos de rutina y derivaciones.</span>
-            </div>
-            <div class="cost-price">$35.00</div>
-          </article>
+    <!-- Bloque Jinja2 para mostrar errores del servidor -->
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+      {% if mensajes %}
+        {% for categoria, texto in mensajes %}
+          <div class="form-group has-error text-center">
+             <span class="form-error-msg" style="display:block; font-size: 15px; margin-bottom: 16px;">{{ texto }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 
-          <!-- Tarjeta de Precio 2 -->
-          <article class="cost-item" role="listitem">
-            <div class="cost-info">
-              <h2 class="cost-specialty">Cardiología</h2>
-              <span class="cost-desc">Valoración cardiovascular clínica (exámenes se facturan por separado).</span>
-            </div>
-            <div class="cost-price">$50.00</div>
-          </article>
+    <form action="{{ url_for('registro') }}" method="POST" id="registroForm">
+      
+      <!-- Campo: Nombre Completo -->
+      <div class="form-group" id="group-nombre">
+        <label class="form-label" for="nombre">Ingresa tu nombre completo:</label>
+        <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Ej: Fernando Lema" required>
+        <span class="form-error-msg">El nombre es obligatorio</span>
+      </div>
 
-          <!-- Tarjeta de Precio 3 -->
-          <article class="cost-item" role="listitem">
-            <div class="cost-info">
-              <h2 class="cost-specialty">Traumatología</h2>
-              <span class="cost-desc">Evaluación de lesiones óseas, musculares y articulares.</span>
-            </div>
-            <div class="cost-price">$45.00</div>
-          </article>
+      <!-- Campo: Correo Electrónico -->
+      <div class="form-group" id="group-email">
+        <label class="form-label" for="email">Ingresa tu correo electrónico:</label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="Ej: correo@ejemplo.com" required>
+        <span class="form-error-msg">Ingresa un formato de correo válido</span>
+      </div>
 
-          <!-- Tarjeta de Precio 4 -->
-          <article class="cost-item" role="listitem">
-            <div class="cost-info">
-              <h2 class="cost-specialty">Neumología</h2>
-              <span class="cost-desc">Atención de vías respiratorias y evaluación de capacidad pulmonar.</span>
-            </div>
-            <div class="cost-price">$55.00</div>
-          </article>
+      <!-- Campo: Contraseña -->
+      <div class="form-group" id="group-password">
+        <label class="form-label" for="password">Crea una contraseña:</label>
+        <input class="form-input" type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" required>
+        <span class="form-error-msg">La contraseña debe tener al menos 6 caracteres</span>
+      </div>
 
-          <!-- Tarjeta de Precio 5 -->
-          <article class="cost-item" role="listitem">
-            <div class="cost-info">
-              <h2 class="cost-specialty">Otorrinolaringología</h2>
-              <span class="cost-desc">Revisión integral de oídos, nariz y garganta.</span>
-            </div>
-            <div class="cost-price">$45.00</div>
-          </article>
+      <button type="submit" class="btn-submit">Registrarse</button>
+      
+      <p class="auth-footer-text">
+        ¿Ya tienes una cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a>
+      </p>
+    </form>
+  </div>
+</main>
 
-        </div>
-
-        <footer class="costs-disclaimer">
-          <p>* Los valores indicados son un promedio referencial. El costo final puede variar dependiendo del profesional seleccionado, la clínica afiliada y los procedimientos adicionales requeridos durante la consulta.</p>
-        </footer>
-
-      </section>
-    </main>
-
-        <footer class="site-footer">
+<footer class="site-footer">
       <div class="site-footer__inner">
         <div class="footer-links">
           <div class="footer-group">
@@ -178,14 +162,29 @@
         <hr class="footer-divider" />
 
         <div class="footer-bottom">
-          <img src="assets/logo-footer.svg" alt="Logo UMA Hospital" class="footer-logo" />
+          <img src="{{ url_for('static', filename='assets/logo-footer.svg') }}" alt="Logo UMA Hospital" class="footer-logo" />
           <div class="footer-socials" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
-            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
-            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="{{ url_for('static', filename='assets/icon-instagram.svg') }}" alt="Instagram" /></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="{{ url_for('static', filename='assets/icon-facebook.svg') }}" alt="Facebook" /></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="{{ url_for('static', filename='assets/icon-x.svg') }}" alt="X" /></a>
           </div>
         </div>
       </div>
     </footer>
-  </body>
-</html>
+
+<!-- Script opcional para validación Frontend (Activa el diseño rojo) -->
+<script>
+  document.getElementById('registroForm').addEventListener('submit', function(e) {
+    let isValid = true;
+    const password = document.getElementById('password').value;
+    
+    // Ejemplo de validación: Contraseña corta
+    if (password.length < 6) {
+      e.preventDefault(); // Detiene el envío
+      document.getElementById('group-password').classList.add('has-error');
+      isValid = false;
+    } else {
+      document.getElementById('group-password').classList.remove('has-error');
+    }
+  });
+</script>

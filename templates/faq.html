@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barra de navegación UMA Hospital</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
@@ -18,7 +18,7 @@
         </button>
 
         <a href="index.html" aria-label="Volver a la página de inicio" class="nav-logo-link">
-          <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
+          <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Logo UMA Hospital" class="nav-logo" />
         </a>
 
         <ul class="nav-links">
@@ -184,11 +184,11 @@
         <hr class="footer-divider" />
 
         <div class="footer-bottom">
-          <img src="assets/logo-footer.svg" alt="Logo UMA Hospital" class="footer-logo" />
+          <img src="{{ url_for('static', filename='assets/logo-footer.svg') }}" alt="Logo UMA Hospital" class="footer-logo" />
           <div class="footer-socials" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
-            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
-            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="{{ url_for('static', filename='assets/icon-instagram.svg') }}" alt="Instagram" /></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="{{ url_for('static', filename='assets/icon-facebook.svg') }}" alt="Facebook" /></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="{{ url_for('static', filename='assets/icon-x.svg') }}" alt="X" /></a>
           </div>
         </div>
       </div>

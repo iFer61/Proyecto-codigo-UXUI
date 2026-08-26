@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barra de navegación UMA Hospital</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
@@ -18,7 +18,7 @@
         </button>
 
         <a href="index.html" aria-label="Volver a la página de inicio" class="nav-logo-link">
-          <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
+          <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Logo UMA Hospital" class="nav-logo" />
         </a>
 
         <ul class="nav-links">
@@ -52,6 +52,7 @@
                 <!-- Conectamos con la página de costos -->
                 <a href="costs-section.html">Costos</a>
                 <a href="#">Especialidades</a>
+                <!-- Conectamos con el buscador/directorio médico -->
                 <a href="#">Directorio médico</a>
               </div>
             </div>
@@ -80,78 +81,72 @@
       </div>
     </nav>
 
-<!-- INICIO DEL CONTENIDO CENTRAL: POLÍTICAS UNIFICADAS -->
-    <main class="main-content legal-page">
-      <div class="legal-layout">
+<!-- INICIO DEL CONTENIDO CENTRAL: COSTOS -->
+    <main class="main-content costs-page">
+      <section class="costs-section" aria-labelledby="costs-title">
         
-        <!-- TARJETA DE SALTO RÁPIDO (Menú Lateral) -->
-        <aside class="legal-sidebar">
-          <div class="legal-sidebar-card">
-            <h3>Documentos Legales</h3>
-            <nav class="legal-nav">
-              <!-- Los enlaces ancla apuntan a los ID de abajo -->
-              <a href="#terminos" class="legal-nav-link">Términos de Servicio</a>
-              <a href="#privacidad" class="legal-nav-link">Privacidad de Datos</a>
-              <a href="#cookies" class="legal-nav-link">Uso de Cookies</a>
-            </nav>
-          </div>
-        </aside>
+        <header class="costs-header">
+          <h1 class="costs-title" id="costs-title">Costos por Especialidad</h1>
+          <p class="costs-subtitle">Conoce el valor referencial promedio de las consultas médicas en nuestra red hospitalaria y clínicas afiliadas.</p>
+        </header>
 
-        <!-- CONTENIDO DE LAS POLÍTICAS -->
-        <div class="legal-container">
+        <div class="costs-grid" role="list">
           
-          <!-- SECCIÓN 1: TÉRMINOS -->
-          <section id="terminos" class="legal-section">
-            <header class="legal-header">
-              <p class="legal-date">Última actualización: 10 de Agosto, 2026</p>
-              <h1 class="legal-title">Términos de Servicio</h1>
-            </header>
-            <article class="legal-content">
-              <p>Al acceder y utilizar la plataforma de agendamiento de UMA Hospital, usted acepta cumplir con los siguientes términos y condiciones que rigen el uso de nuestro software médico.</p>
-              <h2>1. Uso de la cuenta</h2>
-              <p>El paciente es responsable de mantener la confidencialidad de sus credenciales de acceso. Cualquier cita agendada desde su cuenta será considerada válida y sujeta a nuestras políticas de cancelación.</p>
-              <h2>2. Disponibilidad del servicio</h2>
-              <p>Nos esforzamos por mantener la plataforma operativa 24/7, sin embargo, UMA Hospital se reserva el derecho de realizar mantenimientos programados que podrían interrumpir temporalmente el servicio.</p>
-            </article>
-          </section>
+          <!-- Tarjeta de Precio 1 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Medicina General</h2>
+              <span class="cost-desc">Evaluación primaria, chequeos de rutina y derivaciones.</span>
+            </div>
+            <div class="cost-price">$35.00</div>
+          </article>
 
-          <!-- Separador visual -->
-          <hr class="legal-divider">
+          <!-- Tarjeta de Precio 2 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Cardiología</h2>
+              <span class="cost-desc">Valoración cardiovascular clínica (exámenes se facturan por separado).</span>
+            </div>
+            <div class="cost-price">$50.00</div>
+          </article>
 
-          <!-- SECCIÓN 2: PRIVACIDAD -->
-          <section id="privacidad" class="legal-section">
-            <header class="legal-header">
-              <h1 class="legal-title">Privacidad de Datos</h1>
-            </header>
-            <article class="legal-content">
-              <p>En UMA Hospital, respetamos su privacidad y protegemos los datos médicos que comparte con nosotros. Toda la información es procesada mediante protocolos de encriptación de extremo a extremo.</p>
-              <h2>1. Información recopilada</h2>
-              <p>Recopilamos datos de identificación, información de contacto y el historial de síntomas o especialidades consultadas en nuestro motor de búsqueda.</p>
-              <h2>2. Compartición de datos</h2>
-              <p>Sus datos solo serán compartidos con la clínica afiliada o el especialista seleccionado al momento de confirmar un turno, bajo estrictos estándares de confidencialidad médica.</p>
-            </article>
-          </section>
+          <!-- Tarjeta de Precio 3 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Traumatología</h2>
+              <span class="cost-desc">Evaluación de lesiones óseas, musculares y articulares.</span>
+            </div>
+            <div class="cost-price">$45.00</div>
+          </article>
 
-          <!-- Separador visual -->
-          <hr class="legal-divider">
+          <!-- Tarjeta de Precio 4 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Neumología</h2>
+              <span class="cost-desc">Atención de vías respiratorias y evaluación de capacidad pulmonar.</span>
+            </div>
+            <div class="cost-price">$55.00</div>
+          </article>
 
-          <!-- SECCIÓN 3: COOKIES -->
-          <section id="cookies" class="legal-section">
-            <header class="legal-header">
-              <h1 class="legal-title">Uso de Cookies</h1>
-            </header>
-            <article class="legal-content">
-              <p>Utilizamos cookies y tecnologías similares para mejorar su experiencia de navegación, recordar sus preferencias de filtrado de médicos y garantizar la seguridad de su sesión.</p>
-              <h2>1. Tipos de cookies</h2>
-              <p>Implementamos cookies estrictamente necesarias para el funcionamiento del sitio (como el inicio de sesión) y cookies analíticas para entender cómo interactúa con nuestra interfaz.</p>
-            </article>
-          </section>
+          <!-- Tarjeta de Precio 5 -->
+          <article class="cost-item" role="listitem">
+            <div class="cost-info">
+              <h2 class="cost-specialty">Otorrinolaringología</h2>
+              <span class="cost-desc">Revisión integral de oídos, nariz y garganta.</span>
+            </div>
+            <div class="cost-price">$45.00</div>
+          </article>
 
         </div>
-      </div>
+
+        <footer class="costs-disclaimer">
+          <p>* Los valores indicados son un promedio referencial. El costo final puede variar dependiendo del profesional seleccionado, la clínica afiliada y los procedimientos adicionales requeridos durante la consulta.</p>
+        </footer>
+
+      </section>
     </main>
 
-    <footer class="site-footer">
+        <footer class="site-footer">
       <div class="site-footer__inner">
         <div class="footer-links">
           <div class="footer-group">
@@ -183,11 +178,11 @@
         <hr class="footer-divider" />
 
         <div class="footer-bottom">
-          <img src="assets/logo-footer.svg" alt="Logo UMA Hospital" class="footer-logo" />
+          <img src="{{ url_for('static', filename='assets/logo-footer.svg') }}" alt="Logo UMA Hospital" class="footer-logo" />
           <div class="footer-socials" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
-            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
-            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="{{ url_for('static', filename='assets/icon-instagram.svg') }}" alt="Instagram" /></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="{{ url_for('static', filename='assets/icon-facebook.svg') }}" alt="Facebook" /></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="{{ url_for('static', filename='assets/icon-x.svg') }}" alt="X" /></a>
           </div>
         </div>
       </div>

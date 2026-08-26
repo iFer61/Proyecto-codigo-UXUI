@@ -1355,3 +1355,231 @@ html {
     padding: 32px 20px;
   }
 }
+
+/* =========================================
+   ESTADOS DE FORMULARIO (Inputs)
+========================================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 16px;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.form-input {
+  padding: 16px;
+  border: 1px solid #bdc3c7; /* Estado por defecto */
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #bdc3c7;
+}
+
+/* Estado Focus (Seleccionado) */
+.form-input:focus {
+  border-color: #4a90e2; /* Borde azul */
+  border-width: 2px;
+  padding: 15px; /* Compensa el px extra del borde para que no salte */
+}
+
+/* Estado de Error */
+.form-group.has-error .form-input {
+  border-color: #e74c3c; /* Borde rojo */
+  border-width: 2px;
+  padding: 15px;
+}
+
+.form-error-msg {
+  font-family: 'Roboto', sans-serif; /* Tipografía solicitada */
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 4px;
+  display: none; /* Oculto por defecto */
+}
+
+.form-group.has-error .form-error-msg {
+  display: block; /* Se muestra al añadir la clase .has-error */
+}
+
+/* =========================================
+   MODAL DE RETENCIÓN
+========================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Difuminado oscuro */
+  display: none; /* Cambiar a 'flex' mediante JS para mostrarlo */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-title {
+  font-family: Lora, Georgia, serif;
+  color: #184175;
+  font-size: 24px;
+  margin: 16px 0 8px;
+}
+
+.modal-timer {
+  color: #34495e;
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.modal-card {
+  border: 1px solid #e2e5e7;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.modal-doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.modal-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #E5F0FA;
+}
+
+.modal-doctor-info h3 { margin: 0; color: #4a90e2; font-size: 18px; }
+.modal-doctor-info p { margin: 0; color: #34495e; font-size: 13px; }
+
+.modal-time-badge {
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-cancelar {
+  border: 1px solid #e2e5e7; background: #fff; color: #e74c3c;
+  padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+
+.btn-registrarse {
+  border: none; background: #4a90e2; color: #fff;
+  padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+
+/* =========================================
+   PÁGINAS DE AUTENTICACIÓN (Login / Registro)
+========================================= */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 21px;
+  background-color: #f8f9fa; /* Fondo gris muy suave para resaltar la tarjeta blanca */
+}
+
+.auth-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 40px;
+  border-radius: 16px;
+  border: 1px solid #e2e5e7;
+  box-shadow: 0 10px 40px rgba(24, 65, 117, 0.08); /* Sombra con el tono azul del nav */
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-title {
+  font-family: Lora, Georgia, serif;
+  color: #184175;
+  font-size: 32px;
+  margin: 0 0 12px 0;
+}
+
+.auth-subtitle {
+  color: #34495e;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btn-submit {
+  width: 100%;
+  background: #184175;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #112d52;
+}
+
+.auth-footer-text {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.auth-footer-text a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer-text a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   CORRECCIÓN DE COLOR DE TEXTO EN INPUTS
+========================================= */
+input, textarea, select {
+  color: #0f1c2d !important; /* Fuerza un color de texto oscuro y legible */
+}
+
+input::placeholder, textarea::placeholder {
+  color: #bdc3c7 !important; /* Mantiene el gris claro en el texto de ejemplo */
+}

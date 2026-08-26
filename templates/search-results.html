@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resultados de búsqueda UMA Hospital</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
   </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
@@ -18,7 +19,7 @@
         </button>
 
         <a href="index.html" aria-label="Volver a la página de inicio" class="nav-logo-link">
-          <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
+          <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Logo UMA Hospital" />
         </a>
 
         <ul class="nav-links">
@@ -92,66 +93,53 @@
       </header>
 
       <div class="doctors-list">
-        <!-- PLANITLLA DOCTOR 1 -->
+        <!-- INICIO DEL BUCLE DINÁMICO -->
+        {% for doctor in doctores %}
         <article class="doctor-card">
           <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
+            <div class="doctor-avatar" aria-hidden="true">
+              <!-- Lee la imagen desde la base de datos -->
+              <img src="{{ url_for('static', filename='assets/' + doctor.imagen) }}" 
+                  alt="{{ doctor.nombre }}" 
+                  style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            </div>
             <div class="doctor-meta">
-              <h3>Dr. Emilio Córdova</h3>
-              <p>Medicina General</p>
+              <!-- Lee el nombre y la especialidad desde MySQL -->
+              <h3>{{ doctor.nombre }}</h3>
+              <p>{{ doctor.especialidad }}</p>
             </div>
           </div>
 
           <div class="doctor-schedule">
             <h4>Próximos Turnos Disponibles</h4>
             <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">09:30</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">10:30</button>
-              <button class="time-btn" type="button">15:00</button>
-              <button class="time-btn" type="button">15:30</button>
+              <!-- Generamos horarios de ejemplo -->
+              {% set horarios = ['09:00', '09:30', '10:00', '10:30', '14:00', '14:30'] %}
+        
+              {% for hora in horarios %}
+                {% if session.get('usuario_id') %}
+                  <!-- Usuario logueado: Va directo a agendar (Ruta que crearemos luego) -->
+                  <a href="#" class="time-btn">{{ hora }}</a>
+                {% else %}
+                  <!-- Usuario NO logueado: Abre el modal de retención -->
+                  <button class="time-btn" type="button" 
+                          onclick="abrirModal('{{ doctor.nombre }}', '{{ doctor.especialidad }}', '{{ hora }}')">
+                    {{ hora }}
+                  </button>
+                {% endif %}
+              {% endfor %}
             </div>
           </div>
         </article>
-
-        <!-- PLANTILLA DOCTOR 2 (ESTADO VACÍO) -->
+        {% else %}
+        <!-- Mensaje si la base de datos está vacía -->
         <article class="doctor-card doctor-card--empty">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Fernando Lema</h3>
-              <p>Medicina General</p>
-            </div>
-          </div>
-
-          <!-- Limpiamos el texto duplicado para igualar el diseño -->
           <div class="doctor-schedule doctor-schedule--empty">
-            <h4 class="empty-text">Sin Turnos Disponibles</h4>
-            <button class="btn-calendar" type="button">Ver Calendario Completo</button>
+            <h4 class="empty-text">No hay doctores disponibles en este momento.</h4>
           </div>
         </article>
-
-        <!-- PLANTILLA DOCTOR 3 -->
-        <article class="doctor-card">
-          <div class="doctor-info">
-            <div class="doctor-avatar" aria-hidden="true"></div>
-            <div class="doctor-meta">
-              <h3>Dr. Carlos Ruíz Luna</h3>
-              <p>Neumología</p>
-            </div>
-          </div>
-
-          <div class="doctor-schedule">
-            <h4>Próximos Turnos Disponibles</h4>
-            <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">14:00</button>
-              <button class="time-btn" type="button">14:30</button>
-            </div>
-          </div>
-        </article>
+        {% endfor %}
+        <!-- FIN DEL BUCLE -->
       </div>
     </main>
 
@@ -187,14 +175,91 @@
         <hr class="footer-divider" />
 
         <div class="footer-bottom">
-          <img src="assets/logo-footer.svg" alt="Logo UMA Hospital" class="footer-logo" />
+          <img src="{{ url_for('static', filename='assets/logo-footer.svg') }}" alt="Logo UMA Hospital" class="footer-logo" />
           <div class="footer-socials" aria-label="Redes sociales">
-            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
-            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
-            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+            <a href="https://www.instagram.com/i_fer.16/?hl=es" target="_blank" aria-label="Instagram"><img src="{{ url_for('static', filename='assets/icon-instagram.svg') }}" alt="Instagram" /></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="{{ url_for('static', filename='assets/icon-facebook.svg') }}" alt="Facebook" /></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="X"><img src="{{ url_for('static', filename='assets/icon-x.svg') }}" alt="X" /></a>
           </div>
         </div>
       </div>
     </footer>
+
+    <!-- MODAL DE TURNO RETENIDO -->
+<div id="bookingModal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-icon">
+      <!-- Ícono de reloj de arena -->
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 2H7M17 22H7M17 6V2a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 .586 1.414l5.828 5.828a2 2 0 0 1 0 2.828l-5.828 5.828A2 2 0 0 0 7 18v4h10v-4a2 2 0 0 0-.586-1.414l-5.828-5.828a2 2 0 0 1 0-2.828l5.828-5.828A2 2 0 0 0 17 6z"/></svg>
+    </div>
+    
+    <h2 class="modal-title">Turno retenido temporalmente</h2>
+    <p class="modal-timer">05:00 minutos para confirmar cita</p>
+    
+    <div class="modal-card">
+      <div class="modal-doctor-info">
+        <div class="modal-avatar"></div>
+        <div>
+          <!-- Añadimos IDs aquí -->
+          <h3 id="modal-doc-name">Nombre del Doctor</h3>
+          <p id="modal-doc-spec">Especialidad</p>
+        </div>
+      </div>
+      <!-- Añadimos ID aquí -->
+      <div class="modal-time-badge" id="modal-time">00:00</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-registrarse" onclick="window.location.href='/registro'">Registrarse</button>
+    </div>
+  </div>
+</div>
+
+  <!-- MODAL DE TURNO RETENIDO -->
+<div id="bookingModal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-icon">
+      <!-- Ícono de reloj de arena -->
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 2H7M17 22H7M17 6V2a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4a2 2 0 0 0 .586 1.414l5.828 5.828a2 2 0 0 1 0 2.828l-5.828 5.828A2 2 0 0 0 7 18v4h10v-4a2 2 0 0 0-.586-1.414l-5.828-5.828a2 2 0 0 1 0-2.828l5.828-5.828A2 2 0 0 0 17 6z"/></svg>
+    </div>
+    
+    <h2 class="modal-title">Turno retenido temporalmente</h2>
+    <p class="modal-timer">05:00 minutos para confirmar cita</p>
+    
+    <div class="modal-card">
+      <div class="modal-doctor-info">
+        <div class="modal-avatar"></div>
+        <div>
+          <h3>Dr. Carlos Ruíz</h3>
+          <p>Neumología</p>
+        </div>
+      </div>
+      <div class="modal-time-badge">14:00</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-registrarse" onclick="window.location.href='/registro'">Registrarse</button>
+    </div>
+  </div>
+</div>
+
+  <script>
+    function abrirModal(nombreDoctor, especialidad, hora) {
+      // 1. Inyectamos los datos dinámicos en el HTML del modal
+      document.getElementById('modal-doc-name').innerText = nombreDoctor;
+      document.getElementById('modal-doc-spec').innerText = especialidad;
+      document.getElementById('modal-time').innerText = hora;
+      
+      // 2. Cambiamos el CSS para mostrar el fondo difuminado
+      document.getElementById('bookingModal').style.display = 'flex';
+    }
+
+    function cerrarModal() {
+      // Ocultamos el modal si el usuario se arrepiente
+      document.getElementById('bookingModal').style.display = 'none';
+    }
+  </script>
   </body>
 </html>
