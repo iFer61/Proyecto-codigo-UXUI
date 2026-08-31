@@ -578,3 +578,230 @@ body {
   height: 24px;
   display: block;
 }
+
+/* =========================================
+   SUPERPOSICIÓN / MODAL DE RETENCIÓN (PC)
+========================================= */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-icon { margin-bottom: 16px; }
+
+.modal-title {
+  font-family: Lora, Georgia, serif;
+  color: #184175;
+  font-size: 26px;
+  margin: 0 0 8px 0;
+}
+
+.modal-timer {
+  color: #34495e;
+  font-size: 15px;
+  margin: 0 0 32px 0;
+}
+
+.modal-card {
+  border: 1px solid #e2e5e7;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.modal-doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.modal-doctor-text h3 {
+  margin: 0 0 4px 0;
+  color: #4a90e2;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.modal-doctor-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #34495e;
+}
+
+.modal-time-badge {
+  border: 1px solid #4a90e2;
+  color: #111111;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-cancelar, .btn-registrarse {
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancelar {
+  background: #ffffff;
+  border: 1px solid #e2e5e7;
+  color: #e74c3c;
+}
+
+.btn-cancelar:hover {
+  background: #fdf2f2;
+  border-color: #e74c3c;
+}
+
+.btn-registrarse {
+  background: #4a90e2;
+  border: none;
+  color: #ffffff;
+}
+
+.btn-registrarse:hover {
+  background: #357abd;
+}
+
+/* =========================================
+   RECUADRO CENTRAL DE AUTENTICACIÓN
+========================================= */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  background-color: #f8f9fa; /* Fondo gris claro exterior */
+  padding: 40px 20px;
+}
+
+.auth-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 40px;
+  border-radius: 16px;
+  border: 1px solid #e2e5e7;
+  box-shadow: 0 8px 32px rgba(24, 65, 117, 0.08); /* Sombra ligera azulada */
+}
+
+/* Pestañas de Navegación */
+.login-tabs {
+  display: flex;
+  border-bottom: 2px solid #e2e5e7;
+  margin-bottom: 32px;
+  gap: 24px;
+}
+
+.tab-link {
+  text-decoration: none;
+  color: #7f8c8d;
+  font-size: 15px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s ease;
+}
+
+.tab-link:hover {
+  color: #34495e;
+}
+
+.tab-link.active {
+  color: #184175;
+  border-bottom-color: #184175;
+}
+
+/* Barras de entrada (Fondo blanco, borde gris) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 15px;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.form-input {
+  background: #ffffff !important; /* Fuerza fondo blanco */
+  border: 1px solid #bdc3c7 !important; /* Fuerza borde gris */
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 15px;
+  color: #0f1c2d !important;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #4a90e2 !important;
+}
+
+/* Estado de Error (Tipografía Roboto) */
+.form-group.has-error .form-input {
+  border-color: #e74c3c !important;
+}
+
+.form-error-msg {
+  font-family: 'Roboto', sans-serif;
+  color: #e74c3c;
+  font-size: 13px;
+  display: none;
+}
+
+.form-group.has-error .form-error-msg {
+  display: block;
+}
+
+/* Botón global */
+.btn-submit {
+  display: block;
+  width: 100%;
+  background: #184175;
+  color: #ffffff;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #112d52;
+}

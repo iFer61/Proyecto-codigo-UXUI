@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cédula de Identidad - UMA Hospital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" />
+
+    <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
+  <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />
+
+    <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
+  <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 2400px)" />
+</head>
+<body>
+  <!-- Barra de navegación simple -->
+  <nav class="navbar" aria-label="Barra de navegación">
+      <div class="navbar__content">
+        <button class="navbar__menu" type="button" aria-label="Abrir menú">
+          <svg viewBox="0 0 35 35" width="35" height="35" aria-hidden="true">
+            <rect x="6" y="10" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="17" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+            <rect x="6" y="24" width="23" height="3" rx="1.5" fill="#FFFFFF" />
+          </svg>
+        </button>
+
+        <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
+
+        <ul class="nav-links">
+          <li><a href="#">Mis Citas</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+
+        <a href="login.html" class="nav-button">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+  <!-- Recuadro Central -->
+  <main class="auth-page">
+    <div class="auth-container">
+      
+      <div class="login-tabs">
+        <!-- Pestaña Activa -->
+        <a href="login-cedula.html" class="tab-link active">Cédula de Identidad</a>
+        <a href="login-otp.html" class="tab-link">Código OTP</a>
+      </div>
+
+      <!-- Redirige a la vista OTP -->
+      <form action="login-otp.html" method="GET">
+        <!-- Quita la clase "has-error" del div de abajo si deseas ver el estado normal sin rojo -->
+        <div class="form-group">
+          <label class="form-label">Ingresa tu cédula:</label>
+          <input class="form-input" type="text" placeholder="Ej: 1712345678">
+        </div>
+        
+        <button type="submit" class="btn-submit">Continuar</button>
+      </form>
+
+    </div>
+  </main>
+  <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="footer-links">
+          <div class="footer-group">
+            <h3>Nosotros</h3>
+            <ul>
+              <li><a href="#">Historia</a></li>
+              <li><a href="#">Nuestros médicos</a></li>
+              <li><a href="#">Trabaja con nosotros</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Políticas</h3>
+            <ul>
+              <li><a href="#">Términos de servicio</a></li>
+              <li><a href="#">Privacidad de datos</a></li>
+              <li><a href="#">Uso de cookies</a></li>
+            </ul>
+          </div>
+          <div class="footer-group">
+            <h3>Soporte</h3>
+            <ul>
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Preguntas frecuentes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <img src="assets/logo-footer.svg" alt="Logo UMA Hospital" class="footer-logo" />
+          <div class="footer-socials" aria-label="Redes sociales">
+            <a href="#" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="Instagram" /></a>
+            <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#" aria-label="X"><img src="assets/icon-x.svg" alt="X" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
