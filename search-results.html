@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resultados de búsqueda UMA Hospital</title>
-<!-- 1. El trabajo de MÓVIL (Se enciende de 300px a 599px) -->
-    <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" />
+    <title>UMA Hospital - Inicio</title>
 
-    <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
-    <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- 1. El trabajo de MÓVIL (Se enciende de 300px a 599px) -->
+      <!-- <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" /> -->
 
-    <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
-    <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 2400px)" />
+      <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
+      <!-- <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />-->
+
+      <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
+      <!-- <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 2400px)" />-->
   </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
@@ -24,21 +26,22 @@
           </svg>
         </button>
 
-        <img src="assets/logo.png" alt="Logo UMA Hospital" class="nav-logo" />
+        <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
 
-        <ul class="nav-links">
-          <li><a href="#">Mis Citas</a></li>
-          <li><a href="#">Soporte</a></li>
-        </ul>
-
-        <a href="#" class="nav-button">Iniciar Sesión</a>
+        <div class="navbar__collapse">
+          <ul class="nav-links">
+            <li><a href="search-results.html">Mis Citas</a></li>
+            <li><a href="#">Soporte</a></li>
+          </ul>
+          <a href="login.html" class="nav-button">Iniciar Sesión</a>
+        </div>
       </div>
     </nav>
 
     <!-- Le devolvemos la clase 'main-content' para que empuje el footer -->
     <main class="search-page-content main-content">
       <header class="filters-bar">
-        <h1 class="filters-title">Resultados para: 'Dolor de Cabeza'</h1>
+        <h1 class="filters-title">Resultados para: 'me duele la cabeza'</h1>
         <div class="filters-actions">
           <button class="filter-chip" type="button">Filtros</button>
           <button class="filter-chip filter-chip--accent" type="button">Fecha: Cualquiera</button>
@@ -88,18 +91,18 @@
           <div class="doctor-info">
             <div class="doctor-avatar" aria-hidden="true"></div>
             <div class="doctor-meta">
-              <h3>Dr. Carlos Ruíz Luna</h3>
-              <p>Neumología</p>
+              <h3>Dr. Skully Riz</h3>
+              <p>Medicina General</p>
             </div>
           </div>
 
           <div class="doctor-schedule">
             <h4>Próximos Turnos Disponibles</h4>
             <div class="time-slots-grid">
-              <button class="time-btn" type="button">09:00</button>
-              <button class="time-btn" type="button">10:00</button>
-              <button class="time-btn" type="button">14:00</button>
-              <button class="time-btn" type="button">14:30</button>
+              <button class="time-btn" type="button" onclick="document.getElementById('modalRetencion').style.display='flex'">09:00</button>
+              <button class="time-btn" type="button" onclick="document.getElementById('modalRetencion').style.display='flex'">10:00</button>
+              <button class="time-btn" type="button" onclick="document.getElementById('modalRetencion').style.display='flex'">14:00</button>
+              <button class="time-btn" type="button" onclick="document.getElementById('modalRetencion').style.display='flex'">14:30</button>
             </div>
           </div>
         </article>
@@ -120,8 +123,8 @@
             <div class="modal-doctor-info">
               <div class="doctor-avatar"></div>
               <div class="modal-doctor-text">
-                <h3>Dr. Carlos Ruíz</h3>
-                <p>Neumología</p>
+                <h3>Dr. Skully Riz</h3>
+                <p>Médico General</p>
               </div>
             </div>
             <div class="modal-time-badge">14:00</div>
@@ -129,7 +132,7 @@
 
           <div class="modal-actions">
             <button class="btn-cancelar" onclick="document.getElementById('modalRetencion').style.display='none'">Cancelar</button>
-            <button class="btn-registrarse" onclick="window.location.href='login-cedula.html'">Registrarse</button>
+            <button class="btn-registrarse" onclick="window.location.href='login.html'">Registrarse</button>
           </div>
         </div>
       </div>
@@ -176,5 +179,31 @@
         </div>
       </div>
     </footer>
+    <script>
+      const menuButton = document.querySelector('.navbar__menu');
+      const navbar = document.querySelector('.navbar');
+      const menuLinks = document.querySelectorAll('.nav-links a');
+
+      // 1. Abrir/Cerrar menú con el botón hamburguesa
+      menuButton.addEventListener('click', () => {
+        navbar.classList.toggle('menu-active');
+      });
+
+      // 2. Cerrar menú si se hace clic en un enlace (ej. Mis Citas)
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('menu-active');
+        });
+      });
+
+      // 3. Cerrar menú si se hace clic en el fondo oscuro
+      document.addEventListener('click', (e) => {
+        // Ignora el clic si ocurre dentro del panel derecho o en la hamburguesa
+        if (!e.target.closest('.navbar__collapse') && !e.target.closest('.navbar__menu')) {
+          navbar.classList.remove('menu-active');
+        }
+      });
+    </script>
+
   </body>
 </html>

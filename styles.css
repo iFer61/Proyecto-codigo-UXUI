@@ -47,10 +47,10 @@ body {
 }
 
 .nav-links {
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 48px;
-  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -78,6 +78,13 @@ body {
   font-weight: 600;
   font-size: 16px;
   line-height: 1;
+}
+
+.navbar__collapse {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Toma todo el espacio disponible junto al logo */
+  justify-content: space-between;
 }
 
 .hero-carousel {
@@ -510,18 +517,18 @@ body {
 }
 
 .footer-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 24px;
-  max-width: 900px; 
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  max-width: 1000px; 
   margin: 0 auto;
 }
 
 .footer-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
-  text-align: left;
+  align-items: center;
+  text-align: center; 
 }
 
 .footer-group h3 {
@@ -537,6 +544,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: center;
 }
 
 .footer-group a {
@@ -804,4 +812,218 @@ body {
 
 .btn-submit:hover {
   background: #112d52;
+}
+
+/* =========================================
+   TEXTOS DE PIE Y FORMULARIO DE REGISTRO
+========================================= */
+.auth-footer-text {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.auth-footer-text a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.auth-footer-text a:hover {
+  color: #184175;
+  text-decoration: underline;
+}
+
+/* Filas de dos columnas para acortar el formulario en PC */
+.form-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.form-row .form-group {
+  flex: 1; /* Hace que ambas columnas midan exactamente la mitad */
+}
+
+/* =========================================
+   RESPONSIVE: TABLET (600px - 1024px)
+========================================= */
+
+
+@media screen and (max-width: 1024px) {
+  body { min-width: 600px; }
+  .navbar__content { max-width: 1025px; gap: 16px; }
+  
+  .hero-carousel { padding: 80px 40px; min-height: 480px; }
+  .hero-title { font-size: 48px; }
+  .hero-search { max-width: 680px; }
+  .title-desktop { display: none; }
+  .title-tablet { display: block; }
+  
+  .specialties-section { margin-top: 40px; }
+  .specialties-title { font-size: 22px; }
+  .specialties-track { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 16px; scrollbar-width: none; justify-content: flex-start; }
+  .specialties-track::-webkit-scrollbar { display: none; }
+  
+  .affiliates-section { margin: 48px auto; }
+  .affiliates-title { font-size: 24px; }
+  
+  .promos-title { font-size: 24px; }
+  .promos-container { display: flex; flex-direction:column; align-items: center; gap: 24px; }
+  .promo-banner { width: 100%; max-width: 600px; opacity: 1; animation: none; }
+  
+  /* Footer */
+  .site-footer__inner { min-width: 100%; max-width: 100%; }
+  .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+  .footer-group { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+  /* Modal de Retención */
+  .modal-content { padding: 40px 32px; width: 90%; max-width: 460px; }
+  .modal-title { font-size: 24px; }
+  .modal-timer { margin: 0 0 24px 0; }
+  .btn-cancelar, .btn-registrarse { padding: 12px 24px; }
+
+  /* Vistas de Autenticación */
+  .auth-page { padding: 40px 21px; min-height: 75vh; }
+  .auth-container { padding: 40px 32px; max-width: 440px; }
+  .login-tabs { gap: 16px; }
+  .tab-link { font-size: 15px; }
+}
+
+/* =========================================
+   RESPONSIVE: MÓVIL (Hasta 599px)
+========================================= */
+@media screen and (max-width: 599px) {
+  body { min-width: 300px; }
+  
+  /* Navegación y Hamburguesa */
+  .navbar__content { flex-wrap: wrap; justify-content: flex-start; padding: 10px 16px; }
+  
+  /* Forzamos que la hamburguesa esté por encima del fondo oscuro */
+  .navbar__menu { display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; background: transparent; border: none; padding: 0; cursor: pointer; position: relative; z-index: 2001; }
+  .nav-links, .nav-button { display: none; }
+
+  /* =========================================
+     MENÚ LATERAL DESLIZABLE (OFF-CANVAS)
+  ========================================= */
+  .navbar__collapse {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: #184175;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 80px 24px 24px; 
+    transition: left 0.3s ease-in-out;
+    z-index: 2000;
+    box-shadow: 10px 0 24px rgba(0,0,0,0.3);
+    overflow-y: auto;
+  }
+
+  .navbar.menu-active .navbar__collapse {
+    left: 0; /* Despliega el menú hacia el centro */
+  }
+
+  /* Capa de fondo oscuro (Overlay) */
+  .navbar::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .navbar.menu-active::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Orden: Botón de sesión arriba del todo */
+  .navbar__collapse .nav-button {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 0 16px 0; /* Separación pequeña con los enlaces inferiores */
+    order: -1; /* Envía este botón a la primera posición */
+    background-color: #ffffff;
+    color: #184175;
+  }
+
+  .navbar__collapse .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .navbar__collapse .nav-links a {
+    display: block;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 18px;
+    width: 100%;
+    text-align: center; /* Centramos el texto para alinear con el botón superior */
+  }
+  
+  .hero-carousel { padding: 64px 20px; min-height: 420px; width: calc(100% - 42px); }
+  .hero-title { font-size: 40px; }
+  .hero-search { padding: 14px 16px; width: 100%; }
+  .input-desktop { display: none; }
+  .input-mobile { display: block; width: 100%; }
+  
+  .specialties-section { margin: 32px auto; width: calc(100% - 24px); }
+  .specialties-title { font-size: 24px; }
+  .specialty-card { width: 180px; padding: 24px 16px; }
+  
+  .affiliates-section { margin: 32px auto; }
+  .affiliates-title { font-size: 24px; }
+  .affiliate-item img { height: 48px; max-width: 140px; }
+  
+  .promos-section { margin: 32px auto; }
+  .promos-title { font-size: 24px; }
+  
+  /* Resultados de Búsqueda */
+  .search-page-content { padding: 24px 12px 48px; }
+  .filters-bar { flex-direction: column; align-items: center; text-align: center; }
+  .filters-title { font-size: 15px; }
+  .doctor-card { flex-direction: column; text-align: center; padding: 24px 20px; }
+  .doctor-info { flex-direction: column; justify-content: center; }
+  .doctor-schedule { width: 100%; min-width: unset; }
+  
+  /* Footer Apilado */
+  .site-footer__inner { padding: 32px 16px; }
+  .footer-links { grid-template-columns: 1fr; gap: 32px; }
+  .footer-group h3 { font-size: 18px; font-weight: 800; margin: 0 0 20px 0; }
+
+  /* Modal de Retención Móvil */
+  .modal-content { padding: 32px 20px; width: 92%; max-width: 380px; }
+  .modal-title { font-size: 20px; }
+  .modal-card { flex-direction: column; align-items: center; text-align: center; }
+  .modal-doctor-info { flex-direction: column; width: 100%; justify-content: center; text-align: center; }
+  .modal-time-badge { width: 100%; text-align: center; }
+  .modal-actions { flex-direction: column; width: 100%; }
+  .btn-cancelar, .btn-registrarse { width: 100%; padding: 14px; }
+
+  /* Vistas de Autenticación Móvil */
+  .auth-page { padding: 32px 16px; min-height: 70vh; }
+  .auth-container { padding: 32px 20px; }
+  .login-tabs { gap: 12px; }
+  .tab-link { font-size: 14px; padding-bottom: 8px; }
+  .form-label { font-size: 14px; }
+  .form-input { font-size: 14px; padding: 12px; }
+  .btn-submit { font-size: 15px; padding: 12px; }
+
+  /* Hacer que formularios de registro sea de 1 sola columna en celular */
+  .form-row { flex-direction: column; gap: 0; }
 }

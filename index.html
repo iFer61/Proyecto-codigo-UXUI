@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UMA Hospital - Inicio</title>
-<!-- 1. El trabajo de MÓVIL (Se enciende de 300px a 599px) -->
-    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 599px)" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMA Hospital - Inicio</title>
 
-    <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
-    <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- 1. El trabajo de MÓVIL (Se enciende de 300px a 599px) -->
+      <!-- <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" /> -->
 
-    <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
-    <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px)" />
+      <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
+      <!-- <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />-->
+
+      <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
+      <!-- <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 2400px)" />-->
   </head>
   <body>
     <nav class="navbar" aria-label="Barra de navegación">
@@ -26,12 +28,13 @@
 
         <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
 
-        <ul class="nav-links">
-          <li><a href="#">Mis Citas</a></li>
-          <li><a href="#">Soporte</a></li>
-        </ul>
-
-        <a href="login.html" class="nav-button">Iniciar Sesión</a>
+        <div class="navbar__collapse">
+          <ul class="nav-links">
+            <li><a href="search-results.html">Mis Citas</a></li>
+            <li><a href="#">Soporte</a></li>
+          </ul>
+          <a href="login.html" class="nav-button">Iniciar Sesión</a>
+        </div>
       </div>
     </nav>
 
@@ -61,38 +64,32 @@
         <h2 class="specialties-title" id="specialties-title">Especialidades</h2>
         <div class="specialties-track" role="list">
 
-          <article class="specialty-card" role="listitem">
-            <!-- Llamamos directamente al archivo de tu carpeta -->
+          <!-- Reemplazamos <article> por <a> y añadimos text-decoration: none -->
+          <a href="search-results.html" class="specialty-card" role="listitem" style="text-decoration: none;">
             <img src="assets/icon-medicina.svg" alt="Ícono Medicina General" class="specialty-icon" />
-            
             <span class="specialty-name">Medicina General</span>
-          </article>
+          </a>
 
-          <article class="specialty-card" role="listitem">
+          <a href="search-results.html" class="specialty-card" role="listitem" style="text-decoration: none;">
             <img src="assets/icon-cardio.svg" alt="Ícono Cardiología" class="specialty-icon" />
-            
             <span class="specialty-name">Cardiología</span>
-          </article>
+          </a>
 
-          <article class="specialty-card" role="listitem">
+          <a href="search-results.html" class="specialty-card" role="listitem" style="text-decoration: none;">
             <img src="assets/icon-trauma.svg" alt="Ícono Traumatología" class="specialty-icon" />
-            
             <span class="specialty-name">Traumatología</span>
-          </article>
+          </a>
 
-          <article class="specialty-card" role="listitem">
+          <a href="search-results.html" class="specialty-card" role="listitem" style="text-decoration: none;">
             <img src="assets/icon-neumo.svg" alt="Ícono Neumología" class="specialty-icon" />
-            
             <span class="specialty-name">Neumología</span>
-          </article>
+          </a>
 
-          <article class="specialty-card" role="listitem">
+          <a href="search-results.html" class="specialty-card" role="listitem" style="text-decoration: none;">
             <img src="assets/icon-otorrino.svg" alt="Ícono Otorrinolaringología" class="specialty-icon" />
-            
             <span class="specialty-name">Otorrinolaringología</span>
-          </article>
+          </a>
 
-          
         </div>
       </section>
 
@@ -187,5 +184,32 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const menuButton = document.querySelector('.navbar__menu');
+      const navbar = document.querySelector('.navbar');
+      const menuLinks = document.querySelectorAll('.nav-links a');
+
+      // 1. Abrir/Cerrar menú con el botón hamburguesa
+      menuButton.addEventListener('click', () => {
+        navbar.classList.toggle('menu-active');
+      });
+
+      // 2. Cerrar menú si se hace clic en un enlace (ej. Mis Citas)
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('menu-active');
+        });
+      });
+
+      // 3. Cerrar menú si se hace clic en el fondo oscuro
+      document.addEventListener('click', (e) => {
+        // Ignora el clic si ocurre dentro del panel derecho o en la hamburguesa
+        if (!e.target.closest('.navbar__collapse') && !e.target.closest('.navbar__menu')) {
+          navbar.classList.remove('menu-active');
+        }
+      });
+    </script>
+
   </body>
 </html>

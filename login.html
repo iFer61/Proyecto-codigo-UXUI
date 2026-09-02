@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cédula de Identidad - UMA Hospital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMA Hospital - Inicio</title>
 
-    <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
-  <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- 1. El trabajo de MÓVIL (Se enciende de 300px a 599px) -->
+      <!-- <link rel="stylesheet" href="mobile.css" media="screen and (min-width: 300px) and (max-width: 599px)" /> -->
 
-    <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
-  <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 2400px)" />
-</head>
-<body>
-  <!-- Barra de navegación simple -->
-  <nav class="navbar" aria-label="Barra de navegación">
+      <!-- 2. El trabajo de TABLET (Se enciende de 600px a 1024px) -->
+      <!-- <link rel="stylesheet" href="tablet.css" media="screen and (min-width: 600px) and (max-width: 1024px)" />-->
+
+      <!-- 3. El trabajo de ESCRITORIO/PC (Se enciende de 1025px a 2400px) -->
+      <!-- <link rel="stylesheet" href="styles.css" media="screen and (min-width: 1025px) and (max-width: 2400px)" />-->
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Barra de navegación">
       <div class="navbar__content">
         <button class="navbar__menu" type="button" aria-label="Abrir menú">
           <svg viewBox="0 0 35 35" width="35" height="35" aria-hidden="true">
@@ -27,12 +28,13 @@
 
         <img src="assets/logo.svg" alt="Logo UMA Hospital" class="nav-logo" />
 
-        <ul class="nav-links">
-          <li><a href="#">Mis Citas</a></li>
-          <li><a href="#">Soporte</a></li>
-        </ul>
-
-        <a href="login.html" class="nav-button">Iniciar Sesión</a>
+        <div class="navbar__collapse">
+          <ul class="nav-links">
+            <li><a href="search-results.html">Mis Citas</a></li>
+            <li><a href="#">Soporte</a></li>
+          </ul>
+          <a href="login.html" class="nav-button">Iniciar Sesión</a>
+        </div>
       </div>
     </nav>
 
@@ -55,6 +57,9 @@
         </div>
         
         <button type="submit" class="btn-submit">Continuar</button>
+        <p class="auth-footer-text">
+          ¿Usuario no registrado? <a href="registro.html">Crea tu cuenta aquí</a>
+        </p>
       </form>
 
     </div>
@@ -100,5 +105,31 @@
         </div>
       </div>
     </footer>
-</body>
+    <script>
+      const menuButton = document.querySelector('.navbar__menu');
+      const navbar = document.querySelector('.navbar');
+      const menuLinks = document.querySelectorAll('.nav-links a');
+
+      // 1. Abrir/Cerrar menú con el botón hamburguesa
+      menuButton.addEventListener('click', () => {
+        navbar.classList.toggle('menu-active');
+      });
+
+      // 2. Cerrar menú si se hace clic en un enlace (ej. Mis Citas)
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('menu-active');
+        });
+      });
+
+      // 3. Cerrar menú si se hace clic en el fondo oscuro
+      document.addEventListener('click', (e) => {
+        // Ignora el clic si ocurre dentro del panel derecho o en la hamburguesa
+        if (!e.target.closest('.navbar__collapse') && !e.target.closest('.navbar__menu')) {
+          navbar.classList.remove('menu-active');
+        }
+      });
+    </script>
+
+  </body>
 </html>
